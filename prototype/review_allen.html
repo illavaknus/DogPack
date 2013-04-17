@@ -2,9 +2,10 @@
 <html lang="en">
 	<head>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-		<title>DogPack</title>
+		<title>DogPack-Review Allen</title>
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="css/review.css"/>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 	</head>
@@ -35,21 +36,45 @@
 		
 		<div class="container">
 			
-			<div class="row">
-				<div class="span6">
-					<!-- Profile picture -->
-				</div>
-				<div class="span6">
-					<!-- Meetup infromation -->
+			<div class="object">
+				<div class="row">
+					<div class="span6">
+						<!-- Profile picture -->
+						<img class="img-polaroid" src="img/allen.jpg" alt="" width="400" height="400">
+					</div>
+					<div class="span6">
+						<!-- Meetup infromation -->
+						<h1 id= "meetup">Meetup</h1>
+						<h2>with: <span id = "name">Allen </span> </h2>
+						<h2>at:   <span id = "location"> Central Square</h2>
+						<h2>on:   <span id = "date">April 17, 2013</h2>		
+					</div>
 				</div>
 			</div>
 			
-			<div class="span12">
-				<!-- Thumbs up and thumbs down buttons -->
-			</div>
 			
-			<div class="span12">
-				<!-- Text area and submit buttons -->
+			<div class="rate">
+				<!-- Thumbs up and thumbs down buttons -->		
+				<div class="row">
+					<div class="span6">
+						<h2 id = "love">Love it</h2>
+						<a class="btn btn-large btn-success"rel="tooltip" title="Loved it!" id = "lovebutton"><i class="icon-thumbs-up"></i></a>
+					</div>
+					<div  class="span6">
+						<h2 id = "dislove">Not so much</h2>
+						<a class="btn btn-large btn-danger" rel="tooltip" title="Not so much" id = "dislovebutton"><i class="icon-thumbs-down"></i></a>
+           	    	</div>
+           		</div>
+             </div>
+
+			
+			<div class = "comment">
+				<div>
+					<!-- Text area and submit buttons -->
+					<h2>Review Comments</h2>
+					<textarea name="review comments" > </textarea></br>
+					<a class="btn btn-large btn-primary" href="#" id = "submit">Submit</a>
+				</div>
 			</div>
 			
 		</div>
