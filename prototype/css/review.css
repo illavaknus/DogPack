@@ -1,0 +1,61 @@
+.object {
+	padding-top: 50px;
+}
+
+.rate {
+	padding-top: 50px;
+}
+
+#meetup {
+	padding-bottom: 35px;
+}
+
+#name {
+	color: blue;
+	font-weight: bold;
+}
+
+#date {
+	color: purple;
+	font-weight: bold;
+}
+
+#location {
+	color: orange;
+	font-weight: bold;
+}
+
+#love {
+	color: green;
+}
+
+#lovebutton {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+#dislove {
+	color: red;
+}
+
+#dislovebutton {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.comment {
+	padding-top: 50px;
+	height: 100px;
+}
+
+
+textarea {
+	font-family: "Courier New", "Lucida Console";
+	height:200px;
+	width: 800px;
+}
+
+#submit {
+	padding-left: 100px;
+	padding-right: 100px;
+}
