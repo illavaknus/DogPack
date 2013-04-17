@@ -11,3 +11,15 @@
 .thumb {
 	width: 100px;
 }
+
+.meetup-info {
+	text-align: left;
+}
+
+.member-name {
+	font-weight: bold;
+}
+
+.meetup-link {
+	vertical-align: center;
+}

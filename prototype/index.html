@@ -36,109 +36,137 @@
     	
     	<div class="container">
     		
-    		<div class="page-header">
-    			<h1>Welcome Fido!</h1>
+    		<div id="welcomeMsg" class="page-header">
+    			<h1>Welcome <span class="user-name">Fido!</span></h1>
     		</div>
     		
     		<div class="row-fluid">
-    			<div class="span6">
-    				
+                <div id="profileInfoContainer" class="span8">
+                    <img id="profilePicture" class="img-polaroid" src="img/me.jpg">
+                </div>
+    			<div id="upcomingContainer" class="span4">
+                    <div class="row">
+                        <h4><p class="lead">Upcoming Meetups</p><h4>
+                    </div>
     				<div class="row upcoming-meeting">
-    					<div class="span3">
-    						<img class="thumb" src="img/george.jpg" alt="">
+    					<div class="span5">
+                            <a  href="#">
+    						  <img class="thumb img-polaroid" src="img/george.jpg" alt="member photo">
+                            </a>
     					</div>
-    					<div class="span3">
-    						<p class="text-right"><strong>George</strong></br>Today @ 5:00 PM</br>Central Square</p>
+    					<div class="span5 meetup-info">
+                            <div class="row-fluid member-name"><a href="#">George</a></div>
+                            <div class="row-fluid">Today</div>
+                            <div class="row-fluid">@ 5:00 PM</div>
+                            <div class="row-fluid">Central Square</div>
     					</div>
+                        <div class="span1 meetup-link">
+                            <a href="#">
+                                <img src="./img/glyphicons/glyphicons_223_chevron-right.png"></img>
+                            </a>
+                        </div>
     				</div>
-    				
     				<div class="row upcoming-meeting">
-    					<div class="span3">
-    						<img class="thumb" src="img/lance.jpg" alt="">
+    					<div class="span5">
+    						<a  href="#">
+                                <img class="thumb img-polaroid" src="img/lance.jpg"alt="member photo">
+                            </a>
     					</div>
-    					<div class="span3">
-    						<p class="text-right"><strong>Lance</strong></br>Tomorrow @ 7:00 PM</br>Kendall Square</p>
+                        <div class="span5 meetup-info">
+                            <div class="row-fluid member-name"><a href="#">Lance</a></div>
+                            <div class="row-fluid">Tomorrow</div>
+                            <div class="row-fluid">@ 7:00 PM</div>
+                            <div class="row-fluid">Kendall Square</div>
     					</div>
+                        <div class="span1 meetup-link">
+                            <a href="#">
+                                <img src="./img/glyphicons/glyphicons_223_chevron-right.png"></img>
+                            </a>
+                        </div>
     				</div>
-    				
     				<div class="row upcoming-meeting">
-    					<div class="span3">
-    						<img class="thumb" src="img/brock.jpg" alt="">
+    					<div class="span5">
+                            <a  href="#">
+    						  <img class="thumb img-polaroid" src="img/brock.jpg" alt="member photo">
+                            </a>
     					</div>
-    					<div class="span3">
-    						<p class="text-right"><strong>Brock</strong></br>April 22 @ 6:00 AM</br>Oxford St.</p>
+                        <div class="span5 meetup-info">
+                            <div class="row-fluid member-name"><a href="#">Brock</a></div>
+                            <div class="row-fluid">April 22</div>
+                            <div class="row-fluid">@ 8:00 AM</div>
+                            <div class="row-fluid">Oxford St.</div>
     					</div>
+                        <div class="span1 meetup-link">
+                            <a href="#">
+                                <img src="./img/glyphicons/glyphicons_223_chevron-right.png"></img>
+                            </a>
+                        </div>
     				</div>
-    			
-    			</div>
-    			
-    			<div class="span6">
-    				<img id="profilePicture" class="img-polaroid" src="img/me.jpg">
     			</div>
     		</div>
-    		
-    		<div class="row">
-    			<div class="span12">
-    				<h2><a href="#">Previous meetups</a></h2>
-    			</div>
-    		</div>
-    		
-    		<div class="row">
-    			
-    			<div class="span4 previous-meetup">
-    				<div class="row">
-    					<div class="span2">
-    						 <img class="thumb" src="img/roxy.jpg" alt="">
-    					</div>
-    					<div class="span2">
-    						<h4><a href="#">Roxy</a><h4>
-    						<p >April 15</br>5:00 PM</br>Harvard Square</p>
-    						<ul class="inline">
-    							<li><a class="btn btn-small btn-success" href="#"><i class="icon-thumbs-up"></i></a></li>
-    							</li><a class="btn btn-small btn-danger" href="#"><i class="icon-thumbs-up"></i></a></li>
-    							</li><a class="btn btn-small" href="#"><i class="icon-plus"></i></a></li>
-    						</ul>
-    					</div>
-    				</div>
-    			</div>
+    		<div>
+                <div class="row">
+                	<div class="span12">
+                		<h2><a href="#">Previous meetups</a></h2>
+                	</div>
+                </div>
 
-    			<div class="span4 previous-meetup">
-    				<div class="row">
-    					<div class="span2">
-    						 <img class="thumb" src="img/coco.jpg" alt="">
-    					</div>
-    					<div class="span2">
-    						<h4><a href="#">Coco</a><h4>
-    						<p >April 12</br>7:00 PM</br>Charles St.</p>
-    					  <ul class="inline">
-    							<li><a class="btn btn-small btn-success" href="#"><i class="icon-thumbs-up"></i></a></li>
-    							</li><a class="btn btn-small btn-danger" href="#"><i class="icon-thumbs-up"></i></a></li>
-    							</li><a class="btn btn-small" href="#"><i class="icon-plus"></i></a></li>
-    						</ul>
-    					</div>
-    				</div>
-    			</div>
+                <div class="row">
+                	
+                	<div class="span4 previous-meetup">
+                		<div class="row">
+                			<div class="span2">
+                				 <img class="thumb" src="img/roxy.jpg" alt="">
+                			</div>
+                			<div class="span2">
+                				<h4><a href="#">Roxy</a><h4>
+                				<p >April 15</br>5:00 PM</br>Harvard Square</p>
+                				<ul class="inline">
+                					<li><a class="btn btn-small btn-success" href="#"><i class="icon-thumbs-up"></i></a></li>
+                					</li><a class="btn btn-small btn-danger" href="#"><i class="icon-thumbs-up"></i></a></li>
+                					</li><a class="btn btn-small" href="#"><i class="icon-plus"></i></a></li>
+                				</ul>
+                			</div>
+                		</div>
+                	</div>
 
-    			<div class="span4 previous-meetup">
-    				<div class="row">
-    					<div class="span2">
-    						 <img class="thumb" src="img/biscuit.jpg" alt="">
-    					</div>
-    					<div class="span2">
-    						<h4><a href="#">Biscuit</a><h4>
-    						<p >April 10</br>6:00 PM</br>Porter Square<p>
-    						<ul class="inline">
-    							<li><a class="btn btn-small btn-success" href="#"><i class="icon-thumbs-up"></i></a></li>
-    							</li><a class="btn btn-small btn-danger disabled" href="#"><i class="icon-thumbs-up"></i></a></li>
-    							</li><a class="btn btn-small disabled" href="#"><i class="icon-plus"></i></a></li>
-    						</ul>
-    					</div>
-    				</div>
-    			</div>
-    		
-    		</div>
-    	
-			</div>	
+                	<div class="span4 previous-meetup">
+                		<div class="row">
+                			<div class="span2">
+                				 <img class="thumb" src="img/coco.jpg" alt="">
+                			</div>
+                			<div class="span2">
+                				<h4><a href="#">Coco</a><h4>
+                				<p >April 12</br>7:00 PM</br>Charles St.</p>
+                			  <ul class="inline">
+                					<li><a class="btn btn-small btn-success" href="#"><i class="icon-thumbs-up"></i></a></li>
+                					</li><a class="btn btn-small btn-danger" href="#"><i class="icon-thumbs-up"></i></a></li>
+                					</li><a class="btn btn-small" href="#"><i class="icon-plus"></i></a></li>
+                				</ul>
+                			</div>
+                		</div>
+                	</div>
+
+                	<div class="span4 previous-meetup">
+                		<div class="row">
+                			<div class="span2">
+                				 <img class="thumb" src="img/biscuit.jpg" alt="">
+                			</div>
+                			<div class="span2">
+                				<h4><a href="#">Biscuit</a><h4>
+                				<p >April 10</br>6:00 PM</br>Porter Square<p>
+                				<ul class="inline">
+                					<li><a class="btn btn-small btn-success" href="#"><i class="icon-thumbs-up"></i></a></li>
+                					</li><a class="btn btn-small btn-danger disabled" href="#"><i class="icon-thumbs-up"></i></a></li>
+                					</li><a class="btn btn-small disabled" href="#"><i class="icon-plus"></i></a></li>
+                				</ul>
+                			</div>
+                		</div>
+                	</div>
+
+                </div>
+            </div>    	
+		</div>	
 			
 	</body>
 </html>
