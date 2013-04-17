@@ -1,4 +1,9 @@
-body {
-	padding-top: 40px;
-}
+@import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
 
+body { padding-top: 40px; }
+
+.nav { font-family: 'Happy Monkey', cursive; font-size: 16pt; }
+
+.navbar .brand > img { max-height: 40px; }
+
+.navbar .brand { padding: 1px 0px 0px; font-size: 20px;	line-height: 1; }
