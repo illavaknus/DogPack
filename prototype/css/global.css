@@ -17,3 +17,7 @@ body { padding-top: 40px; font-family: 'Happy Monkey', cursive; background-color
 
 .user-name { font-family: 'Coming Soon'; font-style: italic;}
 .member-name { font-family: 'Coming Soon'; font-style: italic;}
+
+.thumb {
+	width: 100px;
+}
