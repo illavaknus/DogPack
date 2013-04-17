@@ -5,8 +5,78 @@
 		<title>DogPack</title>
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="css/search.css">
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+		<script type="text/javascript" src="js/jquery.ui.map.min.js"></script>
+		<script type="text/javascript">
+		
+		var places = ["Harvard Square", "Porter Square", "Beacon Hill", "Kendall Square", "MIT", "Back Bay"];
+		
+		var dogs = [{name:"George", position: "42.35867,-71.069376", age:"4 years old", breed:"Labrador Retriever"},
+		 						{name:"Brock", position: "42.373442,-71.11895", age:"3 years old", breed:"Border Collie"},
+		 						{name:"Lance", position: "42.36099,-71.099287", age:"3 years old", breed:"Siberian Husky"},
+		 						{name:"Biscuit", position:"42.379892,-71.118089", age:"6 month old", breed:"Labrador Retriever"},
+		 						{name:"Coco", position:"42.361065,-71.068926", age:"2 years old", breed:"Pomeranian"},
+		 						{name:"Roxy", position:"42.362143,-71.100426", age:"6 month old", breed: "Poodle"}]
+		var mapWidgets = [];
+		
+		function mapWidgetFor(dog){
+			div = "<a href='#'><img class='span1' src=img/"+dog.name.toLowerCase()+".jpg></a>";
+			div += "<div class='span2'><p><a href='#'><strong>"+ dog.name +"</strong></a>";
+			div += "<br>"+ dog.breed +":</br>"+ dog.age +"</p></div>"
+			return div;
+		}
+		
+		function searchResultsInit(){
+			var div;
+			for(var i= 0; i < dogs.length; ++i){
+				div = "<div class='row search-result'><div class='span6'><img class='span3' src=img/";
+				div += dogs[i].name.toLowerCase()+".jpg></div><div class='span5'><p class='text-right lead'><strong>"
+				div += dogs[i].name + "</strong></br>"+dogs[i].breed+"</br>"+dogs[i].age+"</p></div></div>";
+				$("#listView").append(div);
+			}
+		}
+		
+		var addMarkers = function(map){
+			$.each(dogs, function(i){
+				map.addMarker({
+				'position' : dogs[i].position
+				}).click(function() {
+					map.openInfoWindow({
+					'content' : mapWidgetFor(dogs[i])
+					}, this);
+				})
+			});				
+		}
+	
+
+					
+			$(function() {
+					//Initialzie html for markers
+					for(i=0; i < dogs.length; ++i){
+						mapWidgets.push(mapWidgetFor(dogs[i]));
+					}
+					searchResultsInit();
+					//Initialize map widget
+					$('#mapCanvas').gmap({
+						'center' : '42.358448800000000000,-71.091220400000000000',
+						'zoom' : 15,
+						'callback' : function() {
+							addMarkers(this);
+						}
+					});
+					var map = $('#mapCanvas').gmap('get','map');
+					//Location button click event
+					$("#locationButton").click(function(){
+						var origin = new google.maps.LatLng('42.358448800000000000', '-71.091220400000000000');
+						map.setOptions({'center':origin});
+					});
+					//Bind autocomplete to the textfield
+					$("#searchTextField").typeahead({source:places})        	
+				}).load();
+    </script>	
 	</head>
 	
 	<body>
@@ -34,13 +104,44 @@
 		</div>
 		
 		<div class="container">
-			<div class="span12">
-				<!-- Search bar and current location button -->
+			
+			<div class="page-header">
+    		<h1>Search</h1>
+    	</div>
+    	
+			<!-- Search bar and current location button -->
+			<div class="row">
+				<div class="span12">
+					<form>
+    				<input id="searchTextField" type="text" class="span10 search-query" data-provide="typeahead">
+    				<a id="searchButton" href="#" class="btn btn-primary"><i class="icon-search icon-white"></i></a>
+    				<a id="locationButton" href="#" class="btn btn-success"><i class="icon-map-marker icon-white"></i></a>
+    			</form>
+				</div>
 			</div>
 			
-			<div class="span12">
-				<!-- Map with tab view -->
+			<!-- Map with tab view -->
+			<div class="row">
+				<div class="span12">
+					<div class="tabbable tabs-below">
+   					<div id="searchTabContent" class="tab-content">
+							<div class="tab-pane active" id="tab1">
+								<div id="mapCanvas">
+								</div>
+							</div>
+							<div class="tab-pane" id="tab2">
+								<div id="listView">
+								</div>
+							</div>
+    				</div>
+    				<ul class="nav nav-tabs">
+    					<li class="active"><a href="#tab1" data-toggle="tab">Map View</a></li>
+    					<li><a href="#tab2" data-toggle="tab">List View</a></li>
+    				</ul>
+    			</div>
+				</div>
 			</div>
+			
 		</div>
 		
 	</body>
