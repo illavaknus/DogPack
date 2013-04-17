@@ -5,6 +5,7 @@
 		<title>DogPack</title>
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="css/profile.css"/>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 	</head>
@@ -14,14 +15,14 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="index.html"><img src="./img/logo.png"></a>
+					<a class="brand" href="#">Dogpack</a>
 					<ul class="nav">
 						<li><a href="search.html">Search</a></li>
 						<li><a href="meetup.html">Meetup</a></li>
 					</ul>
 					<ul class="nav pull-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="badge badge-warning">3</span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="badge badge-important">3</span></a>
 							<ul class="dropdown-menu">
 								<li><a href="respond.html" class="notification">Invitiation from Larry<i class="icon-chevron-right"></i></a></li>
 								<li><a href="respond.html" class="notification">Invitation from Tony<i class="icon-chevron-right"></i></a></li>
@@ -35,21 +36,47 @@
 		
 		<div class="container">
 			
-			<div class="row">
-				<div class="span6">
+			<div class="row" id="profile">
+				<div class="span4">
 					<!-- Profile picture -->
+					<img id="profilePicture" class="img-polaroid" src="img/me.jpg" width="250" height="250">
 				</div>
-				<div class="span6">
-					<!-- Profile information -->
-				</div>
+		
+				<div class="span4">
+					<!-- Profile information -->	
+					<h2>Name: Fido</h2>
+					<h4>Age: 4</h4>
+					<h4>Owner: Dream Hoyt</h4>
+					<h4>Rating: 34</h4>
+					<p></li><a class="btn btn-small btn-danger" href="#">Meetup</a></li></p>
+			
+				</div>	
+				<div class="span4">
+					<h2></h2>
+				<h3>About Me</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inc.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inc.
+				Lorem ipsum dolor sit amet. </p>
 			</div>
+			</div>
+			
+			
 			
 			<div class="row">
 				<div class="span6">
 					<!-- Comments -->
+					<h2>Comments</h2>
+					<h5>ray says:</h5>
+					<p>He's safe and friendly. What a great dog!</p>
+					<h5>karen says:</h5>
+					<p>He's surprisingly warm to strangers :)</p>
+					<textarea name="comments" cols="25" rows="5"> Enter your comments here...</textarea><br>
+					</li><a class="btn btn-small btn-danger" href="#">Submit</a></li>
 				</div>
-				<div class="span6">
+					
+				<div class="span4">
 					<!-- Rating summary -->
+			
 				</div>
 			</div>
 			
