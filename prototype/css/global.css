@@ -1,6 +1,22 @@
-body {
-	padding-top: 40px;
-}
+/* Import Font for navbar */
+@import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
+@import url(http://fonts.googleapis.com/css?family=Coming+Soon);
+
+body { padding-top: 40px; font-family: 'Happy Monkey', cursive; background-color: #ECF0F1}
+
+/*.container { background-color: #ffffff; }*/
+
+/* Modify Font for navbar */
+.nav { font-family: 'Happy Monkey', cursive; font-size: 16pt; }
+
+/* Modify logo size */
+.navbar .brand > img { max-height: 40px; }
+
+/* Modify padding. Overwrite bootstrap.min.css */
+.navbar .brand { padding: 1px 0px 0px; font-size: 20px;	line-height: 1; }
+
+.user-name { font-family: 'Coming Soon'; font-style: italic;}
+.member-name { font-family: 'Coming Soon'; font-style: italic;}
 
 .thumb {
 	width: 100px;
