@@ -47,6 +47,9 @@
                     case 'sent' :
                         $('#sent').show();
                         break;
+                    case 'reviewed' :
+                        $('#reviewed').show();
+                        break;
                     default:
                         break;
                 }
@@ -81,7 +84,7 @@
     	
     	<div class="container">
             <div class="row">       
-                <div class="alert-message" id="rejected" style="display: none"> 
+                <div class="alert" id="rejected" style="display: none"> 
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     Invitation <strong>Rejected</strong>
                 </div>
@@ -92,6 +95,10 @@
                 <div class="alert" id="sent" style="display: none"> 
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     Invitation <strong>Sent</strong>... 
+                </div>
+                <div class="alert" id="reviewed" style="display: none"> 
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Review</strong> Submitted 
                 </div>
             </div>
             <div class="row">
@@ -191,7 +198,7 @@
                                <a class="btn btn-small btn-success"rel="tooltip" title="Woof!!" ><i class="icon-thumbs-up"></i></a>
                                <a class="btn btn-small btn-danger" rel="tooltip" title="Grrr!" ><i class="icon-thumbs-down"></i></a>
                             </div>
-                            </li><a class="btn btn-small"  rel="tooltip" title="More comments?"  href="review.html"><i class="icon-plus"></i></a></li>
+                            </li><a class="btn btn-small"  rel="tooltip" title="More comments?"  href="review_allen.html"><i class="icon-plus"></i></a></li>
                         </ul>
                     </div>
                 	</div>                	

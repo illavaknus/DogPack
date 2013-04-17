@@ -15,33 +15,23 @@
 	font-weight: bold;
 }
 
-#date {
-	color: purple;
-	font-weight: bold;
-}
-
-#location {
-	color: orange;
-	font-weight: bold;
-}
-
 #love {
 	color: green;
 }
 
-#lovebutton {
+/*#lovebutton {
 	padding-left: 50px;
 	padding-right: 50px;
 }
-
+*/
 #dislove {
 	color: red;
 }
 
-#dislovebutton {
+/*#dislovebutton {
 	padding-left: 50px;
 	padding-right: 50px;
-}
+}*/
 
 .comment {
 	padding-top: 50px;
@@ -50,7 +40,7 @@
 
 
 textarea {
-	font-family: "Courier New", "Lucida Console";
+	font-family: 'Happy Monkey', cursive; font-size: 16pt; 
 	height:200px;
 	width: 800px;
 }

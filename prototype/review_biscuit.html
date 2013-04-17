@@ -2,9 +2,10 @@
 <html lang="en">
 	<head>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-		<title>DogPack</title>
+		<title>DogPack-Review</title>
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="css/review.css"/>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 	</head>
@@ -34,22 +35,48 @@
 		</div>
 		
 		<div class="container">
-			
 			<div class="row">
-				<div class="span6">
-					<!-- Profile picture -->
+				<span class="lead"><h2>How was your MeetUp?</h2></span>
+			</div>			
+			<div class="row">
+				<div class="span4">
+					<img class="img-polaroid" src="img/biscuit.jpg" alt="" width="400" height="400">
 				</div>
-				<div class="span6">
-					<!-- Meetup infromation -->
+				<div class="span8 lead">
+					<div class="row-fluid"><span class="span3">With</span><span class="span1"> : </span><span class="span8 member-name"><a href="#"><strong>Biscuit</strong></a></span></div>
+                    <div class="row-fluid">
+                    	<span class="span3">On</span>
+                    	<span class="span1"> : </span>
+                    	<span class="span3" id="date">April 10th</span>
+                    	<span class="span4" id="time">@ 6:00PM</span>
+                    </div>
+                    <div class="row-fluid">
+                    	<span class="span3">At</span>
+                    	<span class="span1"> : </span>
+                    	<span class="span8" id="location">Porter Square</span>
+                    </div>	
 				</div>
 			</div>
 			
-			<div class="span12">
-				<!-- Thumbs up and thumbs down buttons -->
-			</div>
-			
-			<div class="span12">
-				<!-- Text area and submit buttons -->
+			<div class="row-fluid lead rate"  data-toggle="buttons-radio">
+				<div class="span3">
+				</div>
+				<div class="span3">
+					<button class="btn btn-large btn-success"rel="tooltip" title="Loved it!" id = "lovebutton"><img src="./img/glyphicons/glyphicons_343_thumbs_up.png"></img></button>
+				</div>
+				<div class="span1">
+				</div>
+				<div class="span3">
+					<button class="btn btn-large btn-danger" rel="tooltip" title="Not so much" id = "dislovebutton"><img src="./img/glyphicons/glyphicons_344_thumbs_down.png"></img></button>
+       	    	</div>
+				<div class="span3">
+				</div>
+       		</div>
+		
+			<div>
+				<h2>Any additional comments?</h2>
+				<textarea name="review comments" > </textarea></br>
+				<a class="btn btn-large btn-primary" onclick="window.location='index.html?action=reviewed'" id="Submit">Submit »</a>
 			</div>
 			
 		</div>
