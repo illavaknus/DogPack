@@ -16,20 +16,20 @@
 		
 		var places = ["Harvard Square", "Porter Square", "Beacon Hill", "Kendall Square", "MIT", "Back Bay"];
 		
-		var dogs = [{name:"George", position: "42.35867,-71.069376", age:"4 years old", breed:"Labrador Retriever", link:"#"},
-		 						{name:"Brock", position: "42.373442,-71.11895", age:"3 years old", breed:"Border Collie", link:"#"},
-		 						{name:"Lance", position: "42.36099,-71.099287", age:"3 years old", breed:"Siberian Husky", link:"#"},
-		 						{name:"Biscuit", position:"42.379892,-71.118089", age:"6 month old", breed:"Labrador Retriever", link:"#"},
-		 						{name:"Coco", position:"42.361065,-71.068926", age:"2 years old", breed:"Pomeranian", link:"#"},
-		 						{name:"Roxy", position:"42.362143,-71.100426", age:"6 month old", breed: "Poodle", link:"#"},
-		 						{name:"Cupcake", position:"42.360335,-71.066377", age:"1 year old", breed: "Pomeranian", link:"profile.html"}];
+		var dogs = [{name:"George", position: "42.35867,-71.069376", age:"4 years old", breed:"Labrador Retriever", link:"profile_george.html"},
+		 						{name:"Brock", position: "42.373442,-71.11895", age:"3 years old", breed:"Border Collie", link:"profile_brock.html"},
+		 						{name:"Lance", position: "42.36099,-71.099287", age:"3 years old", breed:"Siberian Husky", link:"profile_lance.html"},
+		 						{name:"Biscuit", position:"42.379892,-71.118089", age:"6 month old", breed:"Labrador Retriever", link:"profile_biscuit.html"},
+		 						{name:"Coco", position:"42.361065,-71.068926", age:"2 years old", breed:"Pomeranian", link:"profile_coco.html"},
+		 						{name:"Roxy", position:"42.362143,-71.100426", age:"6 month old", breed: "Poodle", link:"profile_roxy.html"},
+		 						{name:"Cupcake", position:"42.360335,-71.066377", age:"1 year old", breed: "Pomeranian", link:"profile_cupcake.html"}];
 		 						
 		var mapWidgets = [];
 		
 		var map;
 		
 		function mapWidgetFor(dog){
-			div = "<a href='#'><img class='span1' src=img/"+dog.name.toLowerCase()+".jpg></a>";
+			div = "<a href='"+dog.link+"'><img class='span1' src=img/"+dog.name.toLowerCase()+".jpg></a>";
 			div += "<div class='span2'><p><a href='"+dog.link+"'><strong>"+ dog.name +"</strong></a>";
 			div += "<br>"+ dog.breed +":</br>"+ dog.age +"</p></div>"
 			return div;
@@ -38,8 +38,8 @@
 		function searchResultsInit(){
 			var div;
 			for(var i= 0; i < dogs.length; ++i){
-				div = "<div class='row search-result'><div class='span6'><img class='span3 img-polaroid' src=img/";
-				div += dogs[i].name.toLowerCase()+".jpg></div><div class='span5'><p class='text-right lead'><a href='"+dogs[i].link;
+				div = "<div class='row search-result'><div class='span6'><a href='"+dogs[i].link+"'><img class='span3 img-polaroid' src=img/";
+				div += dogs[i].name.toLowerCase()+".jpg></a></div><div class='span5'><p class='text-right lead'><a href='"+dogs[i].link;
 				div += "'><strong>"+dogs[i].name+"</strong></a></br>"+dogs[i].breed+"</br>"+dogs[i].age+"</p></div></div>";
 				$("#listView").append(div);
 			}

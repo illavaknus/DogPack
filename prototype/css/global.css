@@ -17,8 +17,21 @@ a { text-decoration: none !important }
 .navbar .brand { padding: 1px 0px 0px; font-size: 20px;	line-height: 1; }
 
 .user-name { font-family: 'Coming Soon'; font-style: italic;}
-.member-name { font-family: 'Coming Soon'; font-style: italic; }
+.member-name { font-family: 'Coming Soon'; font-style: italic; font-weight: bold; }
 
 .thumb {
 	width: 100px;
+}
+
+.grid-view {
+	background-color: "black";
+}
+
+.grid-photo {
+	width : 200px;
+	height: 200px;
+}
+
+#meetupGrid {
+	height:300px;
 }
