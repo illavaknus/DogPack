@@ -3,6 +3,7 @@ class UserSessionsController < ApplicationController
   # GET /login
   def new
     @user_session = UserSession.new
+    render "new", :layout => false
   end
 
   # POST /user_sessions

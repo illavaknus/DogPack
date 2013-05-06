@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   
   def require_login
     unless current_user
-      redirect_to '/login', notice: 'You must be logged in to access this page'
+      redirect_to '/login', layout: false, notice: 'You must be logged in to access this page'
     end
   end
   

@@ -1,13 +1,37 @@
-<h1>Login</h1>
-
-<%= form_for @user_session, :as => :user_session, :url => { :action => 'create' } do |f| %>
-  <%= f.label :email %><br />
-  <%= f.text_field :email %><br />
-  <br />
-  <%= f.label :password %><br />
-  <%= f.password_field :password %><br />
-  <br />
-  <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
-  <br />
-  <%= f.submit "Login" %>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "DogPack" %></title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+	<body>
+    <div class="container">
+      <div class="row">
+        <div class="offset3 span6">
+        	<img src="/img/logo.png"></img>        
+        </div>
+        <div class="span3"></div>
+      </div>
+      <div class="row">
+        <div class="offset3 span6">
+          <span>A handy tool to find and schedule meetups with other dogs in your area</span>        
+        </div>
+        <div class="span3"></div>
+     	</div>
+     	<%= form_for @user_session, :as => :user_session, :url => { :action => 'create' } do |f| %>
+				<h2>Sign in</h2>
+			  <%= f.text_field :email, :placeholder => 'Email Address'%><br />
+			  <%= f.password_field :password, :placeholder => 'Password' %><br />
+			  <label class="checkbox">
+			  <%= f.check_box :remember_me %>Remember me
+			 	</label>
+			  <%= f.submit "Login" , :class =>"btn btn-large btn-primary"%>
+			<% end %>
+    </div>
+  </body>
+</html>

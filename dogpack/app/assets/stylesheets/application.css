@@ -11,3 +11,32 @@
  *= require_self
  *= require_tree .
  */
+
+/* Import Font for navbar */
+@import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
+@import url(http://fonts.googleapis.com/css?family=Coming+Soon);
+
+body { 
+    font-family: 'Helvetica'; 
+    background-color: #ffffff;
+}
+
+.nav { 
+	font-family: 'Happy Monkey', cursive; 
+	font-size: 16pt; 
+}
+
+.user-name { 
+	font-family: 'Coming Soon'; 
+	font-style: italic;
+}
+
+.member-name { 
+	font-family: 'Coming Soon'; 
+	font-style: italic; 
+	font-weight: bold; 
+}
+
+.navbar .brand > img { 
+	max-height: 30px; 
+}
