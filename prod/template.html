@@ -2,32 +2,44 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Title</title>
-        <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-        <link href="css/global.css" rel="stylesheet">
-		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/global.js"></script>
+        <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/global.css">
     </head>
     <body>
         <!-- Navbar -->
         <div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<a class="brand" href="index.html"><img alt="DogPack logo" src="./img/logo.png"></a>
-					<ul class="nav">
-						<li><a href="search.html">Search</a></li>
-						<li><a href="meetup.html">Let's Meetup!</a></li>
-					</ul>
-					<ul class="nav pull-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="badge badge-warning">3</span></a>
-						</li>
-                        <li><a href="signin.html">Logout</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                        <img src="img/glyphicons/glyphicons_002_dog.png"/>
+                    </a>
+                    <a class="brand" href="home.html">
+                        <i class="icon-bar"></i>
+                        <img class="logo" alt="DogPack logo" src="./img/logo.png">
+                    </a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li><a href="search.html">Search</a></li>
+                            <li><a href="meetup.html">Friends</a></li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li><a href="logout.html">Log out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Body -->
+        <div class="main-body container">
+            <div class="row-fluid">
+                Body Content Goes Here...
+            </div>
+        </div>
+        <!-- All the JavaScript links -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/global.js"></script>
     </body>
 </html>

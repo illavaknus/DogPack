@@ -2,10 +2,10 @@
 @import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
 @import url(http://fonts.googleapis.com/css?family=Coming+Soon);
 
-body { padding-top: 50px; font-family: 'Happy Monkey', cursive; background-color: #ECF0F1}
+body { padding-top: 50px; font-family: 'Happy Monkey', cursive; background-color: #ffffff}
 a { text-decoration: none !important }
 
-/*.container { background-color: #ffffff; }*/
+.main-body { background-color: #ECF0F1; }
 
 /* Modify Font for navbar */
 .nav { font-family: 'Happy Monkey', cursive; font-size: 16pt; }
