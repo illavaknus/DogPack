@@ -2,9 +2,11 @@
 @import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
 @import url(http://fonts.googleapis.com/css?family=Coming+Soon);
 
+/*
 @media (max-width: 980px){
-/*    padding-top: 50px;*/
+    padding-top: 50px;
 }
+*/
 
 body { 
     font-family: 'Helvetica'; 
@@ -12,7 +14,7 @@ body {
 }
 a { text-decoration: none !important }
 
-.main-body { background-color: #ECF0F1; }
+.main-body { background-color: #ECF0F1; margin-top: 20px;}
 
 /* Modify Font for navbar */
 .nav { font-family: 'Happy Monkey', cursive; font-size: 16pt; }
