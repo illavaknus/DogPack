@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DogPack - Home</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.css">
+        <link rel="stylesheet" type="text/css" href="css/global.css">
+        <style type="text/css">
+            .list_carousel {
+                /*                padding: 15px 0 15px 40px;*/
+                position: relative;
+            }
+            .list_carousel ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: block;
+            }
+            .list_carousel li {
+                /*                font-size: 30px;*/
+                color: #666;
+                text-align: center;
+                background-color: #f0f0f0;
+                border: 5px solid #ccc;
+                width: 100px;
+                height: 100px;
+                padding: 0;
+                margin: 6px;
+                display: block;
+                float: left;
+            }
+            a.prev, a.next {
+                background: url(img/miscellaneous_sprite.png) no-repeat transparent;
+                width: 45px;
+                height: 50px;
+                display: block;
+                position: absolute;
+                top: 85px;
+            }
+            a.prev {			left: -22px;
+                background-position: 0 0; }
+            a.prev:hover {		background-position: 0 -50px; }
+            a.next {			right: -22px;
+                background-position: -50px 0; }
+            a.next:hover {		background-position: -50px -50px; }
+            
+            a.prev span, a.next span {
+                display: none;
+            }
+            .clearfix {
+                float: none;
+                clear: both;
+            }
+            
+        </style>
+        <!-- JavaScript Links -->
+        <script type="text/javascript" src=http://code.jquery.com/jquery-latest.js></script>
+        <script type="text/javascript" language="javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#notif").carouFredSel({
+                    width           : '100%',
+                    items           : 4,
+                    scroll          : 3,
+                    circular	    : false,
+                    infinite	    : false,
+                    auto            : false,
+                    responsive      : true,
+                    prev : {
+                        button		: "#notif_prev",
+                        key			: "left",
+                        items		: 3,
+                        duration	: 1000
+                    },
+                    next : {
+                        button		: "#notif_next",
+                        key			: "right",
+                        items		: 3,
+                        duration	: 1000
+                    }                 
+                });
+                $("#upcoming").carouFredSel({
+                    width           : '100%',
+                    items           : 4,
+                    scroll          : 3,
+                    circular	    : false,
+                    infinite	    : false,
+                    auto            : false,
+                    responsive      : true,
+                    prev : {
+                        button		: "#upcoming_prev",
+                        key			: "left",
+                        items		: 3,
+                        duration	: 1000
+                    },
+                    next : {
+                        button		: "#upcoming_next",
+                        key			: "right",
+                        items		: 3,
+                        duration	: 1000
+                    }                 
+                });
+                $("#previous").carouFredSel({
+                    width           : '100%',
+                    items           : 4,
+                    scroll          : 3,
+                    circular	    : false,
+                    infinite	    : false,
+                    auto            : false,
+                    responsive      : true,
+                    prev : {
+                        button		: "#previous_prev",
+                        key			: "left",
+                        items		: 3,
+                        duration	: 1000
+                    },
+                    next : {
+                        button		: "#previous_next",
+                        key			: "right",
+                        items		: 3,
+                        duration	: 1000
+                    }                 
+                });
+                $("#notif-small").carouFredSel({
+                    width           : '100%',
+                    items           : 2,
+                    scroll          : 2,
+                    circular	    : false,
+                    infinite	    : false,
+                    auto            : false,
+                    responsive      : true,
+                    prev : {
+                        button		: "#notif_prev-small",
+                        key			: "left",
+                        items		: 2,
+                        duration	: 1000
+                    },
+                    next : {
+                        button		: "#notif_next-small",
+                        key			: "right",
+                        items		: 2,
+                        duration	: 1000
+                    }                 
+                });
+                $("#upcoming-small").carouFredSel({
+                    width           : '100%',
+                    items           : 2,
+                    scroll          : 2,
+                    circular	    : false,
+                    infinite	    : false,
+                    auto            : false,
+                    responsive      : true,
+                    prev : {
+                        button		: "#upcoming_prev-small",
+                        key			: "left",
+                        items		: 2,
+                        duration	: 1000
+                    },
+                    next : {
+                        button		: "#upcoming_next-small",
+                        key			: "right",
+                        items		: 2,
+                        duration	: 1000
+                    }                 
+                });
+                $("#previous-small").carouFredSel({
+                    width           : '100%',
+                    items           : 2,
+                    scroll          : 2,
+                    circular	    : false,
+                    infinite	    : false,
+                    auto            : false,
+                    responsive      : true,
+                    prev : {
+                        button		: "#previous_prev-small",
+                        key			: "left",
+                        items		: 2,
+                        duration	: 1000
+                    },
+                    next : {
+                        button		: "#previous_next-small",
+                        key			: "right",
+                        items		: 2,
+                        duration	: 1000
+                    }                 
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div class="navbar navbar-inverse navbar-static-top hidden-phone">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="home.html">
+                        <img class="logo" alt="DogPack logo" src="./img/logo.png">
+                    </a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="search.html">Search</a></li>
+                            <li><a href="view_friends.html">Friends</a></li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li><a href="logout.html">Log out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-inverse navbar-fixed-top visible-phone">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="home.html">
+                        <img class="logo" alt="DogPack logo" src="./img/logo.png">
+                    </a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="search.html">Search</a></li>
+                            <li><a href="view_friends.html">Friends</a></li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li><a href="logout.html">Log out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Body for Desktops -->
+        <div class="main-body container hidden-phone">
+            <div class="row-fluid content-row">
+                <div class="row-fluid content-header">
+                    <div class="span4">Welcome <span id="username" class="user-name">NAME</span></div>
+                </div>
+                <div class="row-fluid content-body">
+                </div>
+            </div>
+            <div class="row-fluid content-row">
+                <div class="content-header span4">Notifications</div>
+                <div class="row-fluid content-body">
+                    <div class="list_carousel">
+                        <ul id="notif">
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                        </ul> 
+                        <div class="clearfix"></div>
+                        <a class="prev" id="notif_prev" href="#"><span>prev</span></a>
+                        <a class="next" id="notif_next" href="#"><span>next</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid content-row">
+                <div class="row-fluid content-body">
+                    <div class="content-header span4">Upcoming</div>
+                    <div class="list_carousel">
+                        <ul id="upcoming">
+                            <li>                   
+                                <!--
+<div class="row-fluid span3">
+<a  href="profile_lance.html">
+<img class="thumb img-polaroid" src="http://placehold.it/260x180"alt="member photo">
+</a>
+</div>
+<div class="row-fluid span9">
+<div class="row-fluid member-name"><a href="#"><span class="member-name" id="member-id">NAME</span></a></div>
+<div class="row-fluid">Tomorrow</div>
+<div class="row-fluid">@ 7:00 PM</div>
+<div class="row-fluid">Kendall Square</div>
+</div>
+
+<div class="row btn-toolbar">
+<button class="btn btn-danger btn-small" onclick="window.location='#'">Cancel</button>
+<button class="btn btn-warning btn-small"  onclick="window.location='#'"> Change </button>
+</div>
+-->
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                        </ul>  
+                        <div class="clearfix"></div>
+                        <a class="prev" id="upcoming_prev" href="#"><span>prev</span></a>
+                        <a class="next" id="upcoming_next" href="#"><span>next</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid content-row">
+                <!--                <div class="row-fluid ">-->
+                <div class="content-header span4">Previous</div>
+                <!--                </div>-->
+                <div class="row-fluid content-body">
+                    <div class="list_carousel">
+                        <ul id="previous">
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                        </ul> 
+                        <div class="clearfix"></div>
+                        <a class="prev" id="previous_prev" href="#"><span>prev</span></a>
+                        <a class="next" id="previous_next" href="#"><span>next</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Body for Phones -->
+        <div class="main-body container-fluid visible-phone">
+            <div class="row-fluid content-row">
+                <div class="row-fluid content-header">
+                    <div class="span4">Welcome <span id="username" class="user-name">NAME</span></div>
+                </div>
+                <div class="row-fluid content-body">
+                </div>
+            </div>
+            <div class="row-fluid content-row">
+                <div class="content-header span4">Notifications</div>
+                <div class="row-fluid content-body">
+                    <div class="list_carousel">
+                        <ul id="notif-small">
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                        </ul> 
+                        <div class="clearfix"></div>
+                        <a class="prev" id="notif_prev-small" href="#"><span>prev</span></a>
+                        <a class="next" id="notif_next-small" href="#"><span>next</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid content-row">
+                <div class="row-fluid content-body">
+                    <div class="content-header span4">Upcoming</div>
+                    <div class="list_carousel">
+                        <ul id="upcoming-small">
+                            <li>                   
+                                
+                                <div class="row-fluid span3">
+                                    <a  href="profile_lance.html">
+                                        <img class="thumb img-polaroid" src="http://placehold.it/260x180"alt="member photo">
+                                    </a>
+                                </div>
+                                <div class="row-fluid span9">
+                                    <div class="row-fluid member-name"><a href="#"><span class="member-name" id="member-id">NAME</span></a></div>
+                                    <div class="row-fluid">Tomorrow</div>
+                                    <div class="row-fluid">@ 7:00 PM</div>
+                                    <div class="row-fluid">Kendall Square</div>
+                                </div>
+                                
+                                <div class="row btn-toolbar">
+                                    <button class="btn btn-danger btn-small" onclick="window.location='#'">Cancel</button>
+                                    <button class="btn btn-warning btn-small"  onclick="window.location='#'"> Change </button>
+                                </div>
+                                
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                        </ul>  
+                        <div class="clearfix"></div>
+                        <a class="prev" id="upcoming_prev-small" href="#"><span>prev</span></a>
+                        <a class="next" id="upcoming_next-small" href="#"><span>next</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid content-row">
+                <!--                <div class="row-fluid ">-->
+                <div class="content-header span4">Previous</div>
+                <!--                </div>-->
+                <div class="row-fluid content-body">
+                    <div class="list_carousel">
+                        <ul id="previous-small">
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                                <div>
+                                    <span>Date</span>
+                                </div>
+                                <div>
+                                    <span>Location</span>
+                                </div>
+                                <div><span>Name</span>
+                                </div>
+                            </li>
+                        </ul> 
+                        <div class="clearfix"></div>
+                        <a class="prev" id="previous_prev-small" href="#"><span>prev</span></a>
+                        <a class="next" id="previous_next-small" href="#"><span>next</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- All the JavaScript links -->
+        <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/global.js"></script>
+    </body>
+</html>

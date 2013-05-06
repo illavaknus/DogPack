@@ -9,10 +9,53 @@
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript">
+
+        //This script extracts parameters from the URL
+        //from jquery-howto.blogspot.com
+            $.extend({
+                getUrlVars : function() {
+                    var vars = [], hash;
+                    var hashes = window.location.href.slice(
+                            window.location.href.indexOf('?') + 1).split('&');
+                    for ( var i = 0; i < hashes.length; i++) {
+                        hash = hashes[i].split('=');
+                        vars.push(hash[0]);
+                        vars[hash[0]] = hash[1];
+                    }
+                    return vars;
+                },
+                getUrlVar : function(name) {
+                    return $.getUrlVars()[name];
+                }
+            });
+
             $(function () {
                 $("[rel='tooltip']").tooltip();
             });
+
+            // This allows the Javascript code inside this block to only run when the page
+            // has finished loading in the browser.
+            $(document).ready(function() {
+                var alertAction = $.getUrlVar('action');
+                switch(alertAction){
+                    case 'rejected': 
+                        $('#rejected').show();
+                        break;
+                    case 'accepted':
+                        $('#accepted').show();
+                        break;
+                    case 'sent' :
+                        $('#sent').show();
+                        break;
+                    case 'reviewed' :
+                        $('#reviewed').show();
+                        break;
+                    default:
+                        break;
+                }
+            });
         </script>
+
 	</head>
 	
 	<body>
@@ -23,45 +66,113 @@
 					<a class="brand" href="index.html"><img alt="DogPack logo" src="./img/logo.png"></a>
 					<ul class="nav">
 						<li><a href="search.html">Search</a></li>
-						<li><a href="meetup.html">Meetup</a></li>
+						<li><a href="meetup.html">Let's Meetup!</a></li>
 					</ul>
 					<ul class="nav pull-right">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="badge badge-warning">3</span></a>
 							<ul class="dropdown-menu">
-								<li><a href="respond.html" class="notification">Invitiation from Lassy</a></li>
-								<li><a href="#" class="notification">Invitation from Tony</a></li>
-								<li><a href="#" class="notification">Invitation from Sandy</a></li>
+								<li><a href="response_lassy.html" class="notification">Invitiation from Lassy</a></li>
+								<li><a href="response_tony.html" class="notification">Invitation from Tony</a></li>
+								<!--<li><a href="#" class="notification">Invitation from Sandy</a></li>-->
 							</ul>
 						</li>
+                        <li><a href="signin.html">Logout</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
     	
     	<div class="container">
-    		
-    		<div id="welcomeMsg" class="page-header">
-    			<h1>Welcome <span class="user-name">Fido!</span></h1>
-    		</div>
-    		
-    		<div class="row-fluid">
-                <div id="profileInfoContainer" class="span8">
-                    <img id="profilePicture" class="img-polaroid" src="img/me.jpg">
+            <div class="row">       
+                <div class="alert alert-info" id="rejected" style="display: none"> 
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Invitation Rejected</strong>...
                 </div>
-
-    			<div id="upcomingContainer" class="span4">
+                <div class="alert alert-info" id="accepted" style="display: none"> 
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Invitation Accepted</strong>. Meetup added to your schedule. 
+                </div>
+                <div class="alert alert-info" id="sent" style="display: none"> 
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Invitation Sent</strong>. Meetup added to your schedule.
+                </div>
+                <div class="alert alert-info" id="reviewed" style="display: none"> 
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Review Submitted</strong>... 
+                </div>
+            </div>
+            <div class="row">
+        		<div id="welcomeMsg" class="page-header span5">
+        			<h1>Welcome <span class="user-name">Fido!</span></h1>  
+        		</div>
+            </div>
+            
+            
+    		<div class="row-fluid">
+                <div id="profileInfoContainer" class="span16">
+                    <div class="row-fluid">
+                        <div class="span1">
+                            <a href="profile_fido.html" rel="tooltip" title="Edit Profile"><img src="./img/glyphicons/glyphicons_150_edit.png"></img></a>
+                        </div>
+                        <div class="span1">
+                            <a href="#" rel="tooltip" title="Settings"><img src="./img/glyphicons/glyphicons_136_cogwheel.png"></img></a>
+                        </div>
+                        <div class="span10"></div>
+                    </div>
+                    
+                <div class="row-fluid">                    
+                <div class="span5">
+					<img id="profilePicture" class="img-polaroid" src="img/me.jpg">
+				</div>
+		
+				<div class="span4 lead">
+                    <div class="row-fluid">
+                    	<span class="span4">Owner</span>
+                    	<span class="span1"> : </span>
+                    	<span class="span7 member-name">Dream Hoyt</span>
+                    </div>
+					<div class="row-fluid">
+						<span class="span4">Breed</span>
+						<span class="span1"> : </span>
+						<span class="span7">Border-Collie</span>
+					</div>
+                    <div class="row-fluid">
+                    	<span class="span4">Age</span>
+                    	<span class="span1"> : </span>
+                    	<span class="span7">3 years</span>
+                    </div>
+					<div class="row-fluid">
+						<span class="span4">Location</span>
+                    	<span class="span1"> : </span>
+                    	<span class="span7">MIT</span>
+                    </div>
+                    
+                    <div class="row-fluid">
+						<span class="span4">Rating</span>
+                    	<span class="span1"> : </span>
+                    	<span class="span7">95%</span>
+                    </div>
+                    
+				</div>
+				
+			</div>
+				
+                </div>
+				
+				<!--
+    			<div id="upcomingContainer" class="span4 bs-docs-sidebar">
                     <div class="row">
                         <h4><p class="lead"><a href="#">Upcoming Meetups</a></p><h4>
                     </div>
     				<div class="row upcoming-meeting">
     					<div class="span5">
-                            <a  href="#">
+                            <a  href="profile_george.html">
     						  <img class="thumb img-polaroid" src="img/george.jpg" alt="member photo">
                             </a>
     					</div>
     					<div class="span5 meetup-info">
-                            <div class="row-fluid member-name"><a href="#">George</a></div>
+                            <div class="row-fluid member-name"><a href="profile_george.html">George</a></div>
                             <div class="row-fluid">Today</div>
                             <div class="row-fluid">@ 5:00 PM</div>
                             <div class="row-fluid">Central Square</div>
@@ -76,12 +187,12 @@
                     <br/>
     				<div class="row upcoming-meeting">
     					<div class="span5">
-    						<a  href="#">
+    						<a  href="profile_lance.html">
                                 <img class="thumb img-polaroid" src="img/lance.jpg"alt="member photo">
                             </a>
     					</div>
                         <div class="span5 meetup-info">
-                            <div class="row-fluid member-name"><a href="#">Lance</a></div>
+                            <div class="row-fluid member-name"><a href="profile_lance.html">Lance</a></div>
                             <div class="row-fluid">Tomorrow</div>
                             <div class="row-fluid">@ 7:00 PM</div>
                             <div class="row-fluid">Kendall Square</div>
@@ -96,12 +207,12 @@
                     <br/>
     				<div class="row upcoming-meeting">
     					<div class="span5">
-                            <a  href="#">
+                            <a  href="profile_brock.html">
     						  <img class="thumb img-polaroid" src="img/brock.jpg" alt="member photo">
                             </a>
     					</div>
                         <div class="span5 meetup-info">
-                            <div class="row-fluid member-name"><a href="#">Brock</a></div>
+                            <div class="row-fluid member-name"><a href="profile_brock.html">Brock</a></div>
                             <div class="row-fluid">April 22</div>
                             <div class="row-fluid">@ 8:00 AM</div>
                             <div class="row-fluid">Oxford St.</div>
@@ -114,18 +225,213 @@
                         </div>
     				</div>
     			</div>
+    			-->
     		</div>
+
+
+			<!--Invitations-->
+			<div>
+                <div class="row-fluid">
+                	<div class="span4">
+                		<h3><a href="#">Invitations</a></h4>
+                	</div>
+ 					<div class="span1">
+                        <br/>
+                        <a href="#">
+                          <img src="./img/glyphicons/leftmove.png"></img>
+                        </a>
+                    </div>    
+ 					<div class="span1">
+                        <br/>
+                        <a href="#">
+                          <img src="./img/glyphicons/rightmove.png"></img>
+                        </a>
+                    </div>
+                    <div class="span1">
+                        <br/>
+                        <a href="#">
+                          <img src="./img/glyphicons/viewmore.png"></img>
+                        </a>
+                    </div>                                     
+                </div>
+                
+                <div class="row-fluid">
+            	    <div class="span3">                        
+                    	<div class="row-fluid">
+                        	<a  href="profile_lassy.html">
+    						  <img class="thumb img-polaroid" src="img/lassy.jpg" alt="member photo">
+                            </a>
+                    	</div>
+                    	
+                    	
+                    <div class="row-fluid">
+                    	<div class="row-fluid member-name"><a href="profile_lassy.html">Lassy</a></div>
+                    	<!--
+                        <div class="row-fluid">April 28th</div>
+                    	<div class="row-fluid">@ 5:00 PM</div>
+                    	<div class="row-fluid">Central Park</div>
+                    	-->
+                    </div>
+                    
+                    <div class="row btn-toolbar">
+						<button class="btn btn-danger btn-small" onclick="window.location='index.html?action=rejected'">Rej</button>
+						<button class="btn btn-success btn-small" onclick="window.location='index.html?action=accepted'">Acc</button>
+						<button class="btn btn-warning btn-small"  onclick="window.location='response_lassy.html'"> >> </button>
+				    </div>
+                    
+                	</div>
+                	
+                	                	
+                	<div class="span3">                        
+                        <div class="row-fluid">
+                            <a  href="profile_tony.html">
+                                <img class="thumb img-polaroid" src="img/tony.jpg"alt="member photo">
+                            </a>
+                        </div>
+                        
+                        <div class="row-fluid">
+                            <div class="row-fluid member-name"><a href="profile_tony.html">Tony</a></div>
+                            <!--
+                            <div class="row-fluid">April 30th</div>
+                            <div class="row-fluid">@ 6:00 PM</div>
+                            <div class="row-fluid">Central Park</div>
+                            -->
+                        </div>
+                		
+    	                <div class="row btn-toolbar">
+							<button class="btn btn-danger btn-small" onclick="window.location='index.html?action=rejected'">Rej</button>
+							<button class="btn btn-success btn-small" onclick="window.location='index.html?action=accepted'">Acc</button>
+							<button class="btn btn-warning btn-small" onclick="window.location='response_tony.html'"> >> </button>
+					    </div>
+                	</div>
+                </div>
+                <hr/>
+            </div>   
+			
+
+
+			
+
+			<!--Upcoming Meetups-->
     		<div>
                 <div class="row-fluid">
-                	<h4><p class="lead"><a href="#">Previous meetups</a></p></h4>
-                </div>
-                <div class="row-fluid">
-            	    <div class="span2">                        
-                    <div class="row-fluid previous-meetup">
-                        <a href="#"><img class="thumb img-polaroid" src="img/allen.jpg" alt=""></a>
+                	<div class="span4">
+                		<h3><a href="#">Upcoming Meetups</a></h4>
+                	</div>
+ 					<div class="span1">
+                        <br/>
+                        <a href="#">
+                          <img src="./img/glyphicons/leftmove.png"></img>
+                        </a>
+                    </div>    
+ 					<div class="span1">
+                        <br/>
+                        <a href="#">
+                          <img src="./img/glyphicons/rightmove.png"></img>
+                        </a>
                     </div>
+                    <div class="span1">
+                        <br/>
+                        <a href="#">
+                          <img src="./img/glyphicons/viewmore.png"></img>
+                        </a>
+                    </div>                                     
+                </div>
+                
+                <div class="row-fluid">
+            	    <div class="span3">                        
+                    	<div class="row-fluid ">
+                        	<a  href="profile_george.html">
+    						  <img class="thumb img-polaroid" src="img/george.jpg" alt="member photo">
+                            </a>
+                    	</div>
                     <div class="row-fluid previous-meetup">
-                        <div class="row-fluid member-name"><a href="#">Allen</a></div>
+                    	<div class="row-fluid member-name"><a href="profile_george.html">George</a></div>
+                        <div class="row-fluid">Today</div>
+                    	<div class="row-fluid">@ 5:00 PM</div>
+                    	<div class="row-fluid">Central Square</div>
+                    </div>
+                    <div class="row btn-toolbar">
+							<button class="btn btn-danger btn-small" onclick="window.location='#'">Cancel</button>
+							<button class="btn btn-warning btn-small"  onclick="window.location='#'"> Change </button>
+				    </div>
+                	</div>
+                	
+                	                	
+                	<div class="span3">                        
+                        <div class="row-fluid">
+                            <a  href="profile_lance.html">
+                                <img class="thumb img-polaroid" src="img/lance.jpg"alt="member photo">
+                            </a>
+                        </div>
+                        <div class="row-fluid previous-meetup">
+                            <div class="row-fluid member-name"><a href="profile_lance.html">Lance</a></div>
+                            <div class="row-fluid">Tomorrow</div>
+                            <div class="row-fluid">@ 7:00 PM</div>
+                            <div class="row-fluid">Kendall Square</div>
+                        </div>
+                        
+                        <div class="row btn-toolbar">
+							<button class="btn btn-danger btn-small" onclick="window.location='#'">Cancel</button>
+							<button class="btn btn-warning btn-small"  onclick="window.location='#'"> Change </button>
+				    	</div>
+                	</div>
+                	
+                	<div class="span3">
+                        <div class="row-fluid">
+                            <a  href="profile_brock.html">
+    						  <img class="thumb img-polaroid" src="img/brock.jpg" alt="member photo">
+                            </a>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="row-fluid member-name"><a href="profile_brock.html">Brock</a></div>
+                            <div class="row-fluid">April 22</div>
+                            <div class="row-fluid">@ 8:00 AM</div>
+                            <div class="row-fluid">Oxford St.</div>
+                        </div>
+                        
+                    	<div class="row btn-toolbar">
+							<button class="btn btn-danger btn-small" onclick="window.location='#'">Cancel</button>
+							<button class="btn btn-warning btn-small"  onclick="window.location='#'"> Change </button>
+					    </div>
+                	</div>
+                	
+                </div>
+                <hr/>
+            </div>   
+
+			<!--Previous Meetups-->
+    		<div>
+                <div class="row-fluid">
+                	<div class="span4">
+                		<h3><a href="#">Previous Meetups</a></h4>
+                	</div>
+ 					<div class="span1">
+                        <br/>
+                        <a href="#">
+                          <img src="./img/glyphicons/leftmove.png"></img>
+                        </a>
+                    </div>    
+ 					<div class="span1">
+                        <br/>
+                        <a href="#">
+                          <img src="./img/glyphicons/rightmove.png"></img>
+                        </a>
+                    </div>
+                    <div class="span1">
+                        <br/>
+                        <a href="#">
+                          <img src="./img/glyphicons/viewmore.png"></img>
+                        </a>
+                    </div>                                     
+                </div>
+                	<div class="row-fluid">
+            	    <div class="span3">                        
+                    	<div class="row-fluid previous-meetup">
+                        	<a href="profile_allen.html"><img class="thumb img-polaroid" src="img/allen.jpg" alt=""></a>
+                    	</div>
+                    <div class="row-fluid previous-meetup">
+                        <div class="row-fluid member-name"><a href="profile_allen.html">Allen</a></div>
                         <div class="row-fluid">April 17</div>
                         <!-- <div class="row-fluid">@ 5:00 PM</div>
                         <div class="row-fluid">Harvard Square</div> -->
@@ -133,19 +439,19 @@
                     <div class="row-fluid previous-meetup">
                         <ul class="inline">
                             <div class="btn-group" data-toggle="buttons-radio">
-                               <a class="btn btn-small btn-success"rel="tooltip" title="Loved it!" ><i class="icon-thumbs-up"></i></a>
-                               <a class="btn btn-small btn-danger" rel="tooltip" title="Not so much" ><i class="icon-thumbs-down"></i></a>
+                               <a class="btn btn-small btn-danger" rel="tooltip" title="Grrr!" ><i class="icon-thumbs-down"></i></a>
+                               <a class="btn btn-small btn-success"rel="tooltip" title="Woof!!" ><i class="icon-thumbs-up"></i></a>
                             </div>
                             </li><a class="btn btn-small"  rel="tooltip" title="More comments?"  href="review_allen.html"><i class="icon-plus"></i></a></li>
                         </ul>
                     </div>
                 	</div>                	
-                	<div class="span2">                        
+                	<div class="span3">                        
                         <div class="row-fluid previous-meetup">
-                            <a href="#"><img class="thumb img-polaroid" src="img/roxy.jpg" alt=""></a>
+                            <a href="profile_roxy.html"><img class="thumb img-polaroid" src="img/roxy.jpg" alt=""></a>
                         </div>
                         <div class="row-fluid previous-meetup">
-                            <div class="row-fluid member-name"><a href="#">Roxy</a></div>
+                            <div class="row-fluid member-name"><a href="profile_roxy.html">Roxy</a></div>
                             <div class="row-fluid">April 15</div>
                             <!-- <div class="row-fluid">@ 5:00 PM</div>
                             <div class="row-fluid">Harvard Square</div> -->
@@ -153,19 +459,19 @@
                         <div class="row-fluid previous-meetup">
                             <ul class="inline">
                                 <div class="btn-group" data-toggle="buttons-radio">
-                                   <a class="btn btn-small btn-success"rel="tooltip" title="Loved it!" ><i class="icon-thumbs-up"></i></a>
-                                   <a class="btn btn-small btn-danger" rel="tooltip" title="Not so much" ><i class="icon-thumbs-down"></i></a>
+                               <a class="btn btn-small btn-danger" rel="tooltip" title="Grrr!" ><i class="icon-thumbs-down"></i></a>
+                               <a class="btn btn-small btn-success"rel="tooltip" title="Woof!!" ><i class="icon-thumbs-up"></i></a>
                                 </div>
                                 </li><a class="btn btn-small"  rel="tooltip" title="More comments?" href="review_roxy.html"><i class="icon-plus"></i></a></li>
                             </ul>
                         </div>
                 	</div>
-                	<div class="span2">
+                	<div class="span3">
                         <div class="row-fluid previous-meetup">
-                             <a href="#"><img class="thumb img-polaroid" src="img/coco.jpg" alt=""></a>
+                             <a href="profile_coco.html"><img class="thumb img-polaroid" src="img/coco.jpg" alt=""></a>
                         </div>
                         <div class="row-fluid previous-meetup">
-                            <div class="row-fluid member-name"><a href="#">Coco</a></div>
+                            <div class="row-fluid member-name"><a href="profile_coco.html">Coco</a></div>
                             <div class="row-fluid">April 12</div>
                             <!-- <div class="row-fluid">@ 7:00 PM</div>
                             <div class="row-fluid">Charles St.</div> -->
@@ -173,19 +479,19 @@
                         <div class="row-fluid previous-meetup">
                             <ul class="inline">
                                 <div class="btn-group" data-toggle="buttons-radio">
-                                   <a class="btn btn-small btn-success"rel="tooltip" title="Loved it!" ><i class="icon-thumbs-up"></i></a>
-                                   <a class="btn btn-small btn-danger" rel="tooltip" title="Not so much" ><i class="icon-thumbs-down"></i></a>
+                               <a class="btn btn-small btn-danger" rel="tooltip" title="Grrr!" ><i class="icon-thumbs-down"></i></a>
+                               <a class="btn btn-small btn-success"rel="tooltip" title="Woof!!" ><i class="icon-thumbs-up"></i></a>
                                 </div>
                                 </li><a class="btn btn-small"  rel="tooltip" title="More comments?" href="review_coco.html"><i class="icon-plus"></i></a></li>
                             </ul>
                         </div>
                 	</div>
-                	<div class="span2">
+                	<div class="span3">
                         <div class="row-fluid previous-meetup">
-                             <a href="#"><img class="thumb img-polaroid" src="img/biscuit.jpg" alt=""></a>
+                             <a href="profile_biscuit.html"><img class="thumb img-polaroid" src="img/biscuit.jpg" alt=""></a>
                         </div>
                         <div class="row-fluid previous-meetup">
-                            <div class="row-fluid member-name"><a href="#">Biscuit</a></div>
+                            <div class="row-fluid member-name"><a href="profile_biscuit.html">Biscuit</a></div>
                             <div class="row-fluid">April 10</div>
                             <!-- <div class="row-fluid">@ 6:00 PM</div>
                             <div class="row-fluid">Porter Square</div> -->
@@ -193,8 +499,8 @@
                         <div class="row-fluid previous-meetup">
                             <ul class="inline">
                                 <div class="btn-group" data-toggle="buttons-radio">
-                                   <a class="btn btn-small btn-success"rel="tooltip" title="Loved it!" ><i class="icon-thumbs-up"></i></a>
-                                   <a class="btn btn-small btn-danger" rel="tooltip" title="Not so much" ><i class="icon-thumbs-down"></i></a>
+                               <a class="btn btn-small btn-danger" rel="tooltip" title="Grrr!" ><i class="icon-thumbs-down"></i></a>
+                               <a class="btn btn-small btn-success"rel="tooltip" title="Woof!!" ><i class="icon-thumbs-up"></i></a>
                                 </div>
                                 </li><a class="btn btn-small" rel="tooltip" title="More comments?" href="review_biscuit.html"><i class="icon-plus"></i></a></li>
                             </ul>

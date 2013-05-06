@@ -2,16 +2,15 @@
 <html lang="en">
 	<head>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-		<title>DogPack-Response</title>
+		<title>DogPack - Fido</title>
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/global.css"/>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/global.css"/>
 		<script type="text/javascript" src="js/global.js"></script>
 	</head>
 	
 	<body>
-		<!-- Navigation Bar -->
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
@@ -39,47 +38,62 @@
 			<div class="row">
             	<a onclick="goBack()"><img src="./img/glyphicons/glyphicons_224_chevron-left.png"></img><span class="lead"><strong> Back</strong></span></a>
         	</div>
-			<div class="row">
-				<span class="lead"><h2>You have an invitation to MeetUp!</h2></span>
-			</div>
-			<div class="row">
+    		<div id="heading" class="page-header">
+    			<h1>About <span class="user-name">Coco</span></h1>  
+    		</div>			
+			<div class="row" id="profile">
 				<div class="span4">
-                    <img id="profilePicture" class="img-polaroid member-photo" src="img/lassy.jpg">
+					<img id="profilePicture" class="img-polaroid" src="img/coco.jpg" width="250" height="250">
 				</div>
+		
 				<div class="span8 lead">
-					<div class="row-fluid"><span class="span3">Who</span><span class="span1"> : </span><span class="span8 member-name"><a href="profile_lassy.html">Lassy</a></span></div>
                     <div class="row-fluid">
-                    	<span class="span3">When</span>
+                    	<span class="span4">Owner</span>
                     	<span class="span1"> : </span>
-                    	<span class="span3" id="date">April 28th</span>
-                    	<span class="span4" id="time">@ 5:00PM</span>
-                    </div>
-                    <div class="row-fluid">
-                    	<span class="span3">Where</span>
-                    	<span class="span1"> : </span>
-                    	<span class="span3" id="location">Central Park</span>
-                    	<span class="span4"><a href="#"><img src="./img/glyphicons/glyphicons_242_google_maps.png"></img></a></span>
+                    	<span class="span7 member-name">Jumping Hoyt</span>
                     </div>
 					<div class="row-fluid">
-						<span class="span3">Message</span>
+						<span class="span4">Breed</span>
+						<span class="span1"> : </span>
+						<span class="span7">Pomeranian</span>
+					</div>
+                    <div class="row-fluid">
+                    	<span class="span4">Age</span>
                     	<span class="span1"> : </span>
-                    	<span class="span6">Let's play frisbee!</span>
+                    	<span class="span7">2 years</span>
                     </div>
+					<div class="row-fluid">
+						<span class="span4">Location</span>
+                    	<span class="span1"> : </span>
+                    	<span class="span7">Beacon Hill</span>
+                    </div>
+				</div>
+			</div>
+			<h2><span class="member-name">Coco</span> says</h2>
+			<div class="row lead">
+				<div class="span8">
+					<p>I am a goofy dog. I am very energetic. I am a busy dog and want to have something to do. I love to play frisbee and tag with other dogs. The only odd thing about me is that I lean my head to one side and I like being busy. <p>
+				</div>
+				<div class="span4">
+					<a class="btn btn-primary btn-large" href="schedule_coco.html">Wanna Meetup?</a>
+				</div>
+				<p><p>
+			</div>
+			<h2>What others say</h2>
+			<div class="row lead">
+				<div class="span8">
+					<div class="row-fluid member-name">Ray:</div>
+					<p>He's safe and friendly. What a great dog!</p>
+					<div class="row-fluid member-name">Karen:</div>
+					<p>He's surprisingly warm to strangers :)</p>
+				</div>
+					
+				<div class="span4">
+					<span class="span4"><h4>Rating : </h4></span>
+					<span class="span8">84% <img src="./img/glyphicons/glyphicons_343_thumbs_up.png"></img></span>		
 				</div>
 			</div>
 			
-			<div class="row">
-				<span class="row"><h2>Your Availability :<h2></span>
-				<span class="row lead">Nothing scheduled for the April 28th.</span>
-			</div>
-
-			<div class="row span12">
-				<div class="row btn-toolbar">
-						<button class="btn btn-danger btn-large" onclick="window.location='index.html?action=rejected'">Reject!</button>
-						<button class="btn btn-success btn-large" onclick="window.location='index.html?action=accepted'">Accept!</button>
-						<button class="btn btn-warning btn-large" onclick="window.location='reschedule_lassy.html'">New Time »</button>
-				</div>
-			</div>
 		</div>
 		
 	</body>

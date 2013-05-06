@@ -1,0 +1,16 @@
+#calendar {
+	height: 500px;
+	margin: 10px auto;
+}
+
+.row {
+	margin-bottom:10px;
+}
+
+.first-row {
+	margin-top:15px;
+}
+
+a {
+	margin:2.5px;
+}

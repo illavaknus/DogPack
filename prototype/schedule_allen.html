@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>DogPack</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="css/schedule.css"/>
+		<link rel="stylesheet" type="text/css" href="css/fullcalendar.css"/>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.10.2.custom.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/fullcalendar.min.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		<script type="text/javascript">
+		
+		var places = ["Harvard Square", "Porter Square", "Beacon Hill", "Kendall Square", "MIT", "Back Bay"];
+		var cupcakesEvents = {
+            	events: [ // put the array in the `events` property
+                {
+                    title  : 'Cupcake w/ Biscuit',
+                    start  : '2013-04-19 17:00:00',
+                    end    : '2013-04-19 18:00:00',
+                    allDay : false 
+                },
+                {
+                    title  : 'Cupcake w/ Roxy',
+                    start  : '2013-04-21 7:00:00',
+                    end    : '2013-04-21 8:00:00',
+                    allDay : false
+                },
+                {
+                    title  : 'Cupcake w/ Coco',
+                    start  : '2013-04-23 6:00:00',
+                    end    : '2013-04-23 7:00:00',
+                    allDay : false
+                }],
+              color: 'red',
+            	textColor: 'white'
+
+       };
+		
+		var fidosEvents =  {
+            	events: [ // put the array in the `events` property
+                {
+                    title  : 'Fido w/ George',
+                    start  : '2013-04-17 17:00:00',
+                    end    : '2013-04-17 18:00:00',
+                    allDay : false
+                },
+                {
+                    title  : 'Fido w/ Lance',
+                    start  : '2013-04-18 19:00:00',
+                    end    : '2013-04-18 20:00:00',
+                    allDay : false
+                },
+                {
+                    title  : 'Fido w/ Brock',
+                    start  : '2013-04-22 8:00:00',
+                    end    : '2013-04-22 9:00:00',
+                    allDay : false
+                }],
+             	color: 'red',
+              textColor: 'white'
+      };
+      
+		
+				$(document).ready(function() {
+					//Set up calendar
+					$('#calendar').fullCalendar({
+						header: {
+							left: 'prev,next today',
+							center: 'title',
+							right: 'month,agendaWeek,agendaDay'
+							},
+						defaultView: 'agendaWeek', 
+						editable: true,
+						dayClick: function(date, allDay, jsEvent, view) {
+        			$('#calendar').fullCalendar('refetchEvents');
+            	$('#calendar').fullCalendar('renderEvent', {
+  							title: 'Meetup w/ Cupcake',
+  							start: date,
+  							end: new Date(date.getTime()+(1000*60*60)),
+  							allDay: false,
+  							color: 'green',
+  							textColor: 'white'
+								}, false);
+							$('#inputMeetupTime').val(date.toUTCString());	
+    				},
+    				eventSources: [fidosEvents, cupcakesEvents],
+    				height: 500
+					});
+					//Typeahead for location input
+					$("#inputLocation").typeahead({source: places, updater: function(item) {
+        		this.$element[0].value = item;
+        		return item;
+    			}})
+					$('.alert').hide();
+    			$('#sendBtn').click(function(e){
+      			console.log('Send button clicked');
+      			if($("#inputLocation").val().length == 0 || $("#inputMeetupTime").val().length == 0 || $("#textAreaMessage").val().length == 0){
+      				$('.alert').show();
+      				e.preventDefault();
+      			}
+      		}); 
+			 	});
+		</script>
+	</head>
+	
+	<body>
+		<!-- Navigation Bar -->
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="index.html"><img src="./img/logo.png"></a>
+					<ul class="nav">
+						<li><a href="search.html">Search</a></li>
+						<li><a href="meetup.html">Let's Meetup!</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="badge badge-warning">3</span></a>
+							<ul class="dropdown-menu">
+								<li><a href="response_lassy.html" class="notification">Invitiation from Lassy</a></li>
+								<li><a href="response_tony.html" class="notification">Invitation from Tony</a></li>
+								<li><a href="#" class="notification">Invitation from Sandy</a></li>
+							</ul>
+						</li>
+                        <li><a href="signin.html">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			
+			<div class="row first-row">
+				<div class="span10">
+					<h2>Schedule a meetup with <span class="member-name">Allen</span></h2>
+				</div>
+				<div class="span2">
+					<img src="img/allen.jpg" class="thumb img-polaroid pull-right"> 
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="span12">
+					<div id="calendar"></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="span6">
+					<form>
+						<label>Meetup Time</label>
+						<input class="span6" type="text" id="inputMeetupTime" disabled>
+						<label>Location</label>
+						<input class= "span6" type="text" id="inputLocation" autocomplete="off" data-provide="typeahead">						
+					</form>
+				</div>
+				<div class="span6">
+					<label>Message</label>
+					<textarea id="textAreaMessage" class="span6" rows="5"></textarea>
+					<a href="index.html?action=sent" id="sendBtn" class="btn btn-success pull-right">Send</a>
+					<a onclick="goBack()" id="cancelBtn" class="btn btn-danger pull-right">Cancel</a>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div clas="span12">
+					<div class="alert alert-error">
+   	 				<button type="button" class="close" data-dismiss="alert">&times;</button>
+    				Please fill out all fields before sendng invitiation
+    			</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>
