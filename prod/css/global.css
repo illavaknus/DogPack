@@ -14,7 +14,9 @@ body {
 }
 a { text-decoration: none !important }
 
-.main-body { background-color: #ECF0F1; margin-top: 20px;}
+.main-body { background-color: #ECF0F1; margin-top: 20px; padding:10pt; }
+
+/*.large-screen { margin-top: 50px; }*/
 
 /* Modify Font for navbar */
 .nav { font-family: 'Happy Monkey', cursive; font-size: 16pt; }
@@ -47,8 +49,10 @@ height:300px;
 }
 */
 
-.content-row { padding:10pt; }
+.content-row { margin-bottom: 20px; }
 
 .content-header { font-family: 'Happy Monkey', cursive; font-size: 16pt; font-weight:bold; }
 
 .content-body { }
+
+.content-body > img { max-width:100%; }
