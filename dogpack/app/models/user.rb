@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_authentic
   
-  attr_accessible :name, :email, :owner, :image_url, :age, :breed, :weight, :location, :longitude, :overall_rating
+  attr_accessible :name, :email, :owner, :image_url, :age, :breed, :size, :location, :longitude, :latitude, :overall_rating
   
   has_many  :previous_meetups, :finder_sql => proc{
             "SELECT * FROM meetups "+

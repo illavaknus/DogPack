@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20130505234127) do
     t.string   "image_url"
     t.integer  "age"
     t.string   "breed"
-    t.integer  "weight"
+    t.string   "size"
     t.string   "location"
     t.float    "longitude"
     t.float    "latitude"
