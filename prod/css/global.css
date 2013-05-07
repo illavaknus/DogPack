@@ -2,10 +2,21 @@
 @import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
 @import url(http://fonts.googleapis.com/css?family=Coming+Soon);
 
-body { padding-top: 50px; font-family: 'Happy Monkey', cursive; background-color: #ffffff}
+/*
+@media (max-width: 980px){
+    padding-top: 50px;
+}
+*/
+
+body { 
+    font-family: 'Helvetica'; 
+    background-color: #ffffff;
+}
 a { text-decoration: none !important }
 
-.main-body { background-color: #ECF0F1; }
+.main-body { background-color: #ECF0F1; margin-top: 20px; padding:10pt; }
+
+/*.large-screen { margin-top: 50px; }*/
 
 /* Modify Font for navbar */
 .nav { font-family: 'Happy Monkey', cursive; font-size: 16pt; }
@@ -19,19 +30,31 @@ a { text-decoration: none !important }
 .user-name { font-family: 'Coming Soon'; font-style: italic;}
 .member-name { font-family: 'Coming Soon'; font-style: italic; font-weight: bold; }
 
+.img-thumb { max-height:100px; max-width:140px; }
+
 .thumb {
-	width: 100px;
+    width: 100px;
 }
 
 .grid-view {
-	background-color: "black";
+    background-color: "black";
 }
 
 .grid-photo {
-	width : 200px;
-	height: 200px;
+    width : 200px;
+    height: 200px;
 }
 
+/*
 #meetupGrid {
-	height:300px;
+height:300px;
 }
+*/
+
+.content-row { margin-bottom: 20px; }
+
+.content-header { font-family: 'Happy Monkey', cursive; font-size: 16pt; font-weight:bold; }
+
+.content-body { }
+
+.content-body > img { max-width:100%; }

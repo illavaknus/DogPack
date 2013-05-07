@@ -1,0 +1,84 @@
+// Place all the styles related to the users controller here.
+
+.list_carousel {
+    position: relative;
+}
+
+.list_carousel ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+.list_carousel li {
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    width: 100px;
+    height: 100px;
+    padding: 2px;
+    margin: 6px;
+    display: block;
+    float: left;
+}
+
+.list_carousel li div {
+  height: 100%;
+  position: relative;
+}
+
+.list_carousel li div img {
+  position:absolute;
+  height: 90%;
+  width: auto;
+  top:0;
+  bottom:0;
+  margin:auto;
+}
+
+a.prev, a.next {
+    background: url(/img/miscellaneous_sprite.png) no-repeat transparent;
+    width: 45px;
+    height: 50px;
+    position: absolute;
+    top: 85px;
+}
+
+a.prev {      
+  left: -22px;
+  background-position: 0 0; 
+}
+  
+a.prev:hover {    
+  background-position: 0 -50px; 
+}
+  
+a.next {      
+  right: -22px;
+  background-position: -50px 0; 
+}
+a.next:hover {    
+  background-position: -50px -50px;   
+}
+
+a.prev span, a.next span {
+    display: none;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+.content-row { 
+  margin-bottom: 20px; 
+}
+
+.content-header { 
+  font-family: 'Happy Monkey', 
+  cursive; font-size: 16pt; 
+  font-weight:bold; 
+}
+
+.content-body { }
+
+.content-body > img { max-width:100%; }

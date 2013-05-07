@@ -1,0 +1,21 @@
+<h1>Listing meetups</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @meetups.each do |meetup| %>
+  <tr>
+    <td><%= link_to 'Show', meetup %></td>
+    <td><%= link_to 'Edit', edit_meetup_path(meetup) %></td>
+    <td><%= link_to 'Destroy', meetup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Meetup', new_meetup_path %>
