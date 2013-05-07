@@ -1,2 +1,97 @@
-<h1>Users#current</h1>
-<p>Find me in app/views/users/current.html.erb</p>
+<script type="text/javascript" language="javascript" src="assets/jquery.carouFredSel-6.2.1-packed.js"></script>
+<!-- Body for Desktops and Mobile Browsers -->
+<% ['hidden-phone', 'visible-phone'].each do |c| %>
+<div class="main-body container <%= c %>">
+    <div class="row-fluid content-row">
+    	<div class="span6">
+      	<h1>Welcome <span class="username"><%= @user.name %></span></h1>
+			</div>
+			<div class="offset1 span5">
+				<%= image_tag @user.image_url, :class => 'img-polaroid span6'%>	
+			</div>
+    </div>
+    <div class="row-fluid content-row">
+	    <div class="span12">
+	    	<h2 class="content-header">Invitiations</h2>
+	    	<div class="row-fluid content-body">
+	        <div class="list_carousel span12">
+	            <ul id="notif">
+	            	<% @user.invitations.each do |m| %>
+	            		<li class="img-polaroid">
+	            			<div class="offset1 span3">
+	            			<%= image_tag m.sender.image_url %>
+	            			</div>
+	            			<div class="offset1 span7">
+	              			<%= m.sender.name %></br>
+	              			<%= m.date.strftime '%b %e, %l:%M %p' %></br>
+	              			<%= m.venue %></br>
+	              		</div>
+	              	</li>
+	            	<% end %>
+	            </ul> 
+	            <div class="clearfix"></div>
+	            <a class="prev" id="notif_prev" href="#"><span>prev</span></a>
+	            <a class="next" id="notif_next" href="#"><span>next</span></a>
+	        </div>
+	    	</div>
+	    </div>
+    </div>
+    <div class="row-fluid content-row">
+	    <div class="span12">
+	    	<h2 class="content-header">Upcoming Meetups</h2>
+	    	<div class="row-fluid content-body">
+	        <div class="list_carousel span12">
+	            <ul id="upcoming">
+	            	<% @user.upcoming_meetups.each do |m| %>
+	            		<li class="img-polaroid">
+	            			<div class="offset1 span3">
+	            			<%= image_tag m.sender.image_url %>
+	            			</div>
+	            			<div class="offset1 span7">
+	              			<%= m.sender.name %></br>
+	              			<%= m.date.strftime '%b %e, %l:%M %p' %></br>
+	              			<%= m.venue %></br>
+	              		</div>
+	              	</li>
+	            	<% end %>
+	            </ul> 
+	            <div class="clearfix"></div>
+	            <a class="prev" id="notif_prev" href="#"><span>prev</span></a>
+	            <a class="next" id="notif_next" href="#"><span>next</span></a>
+	        </div>
+	    	</div>
+	    </div>
+    </div>
+    <div class="row-fluid content-row">
+	    <div class="span12">
+	    	<h2 class="content-header">Previous Meetups</h2>
+	    	<div class="row-fluid content-body">
+	        <div class="list_carousel span12">
+            <ul id="previous">
+            	<% @user.previous_meetups.each do |m| %>
+            		<li class="img-polaroid">
+            			<div class="offset1 span3">
+            			<%= image_tag m.sender.image_url %>
+            			</div>
+            			<div class="offset1 span7">
+              			<%= m.sender.name %></br>
+              			<%= m.date.strftime '%b %e, %l:%M %p' %></br>
+              			<%= m.venue %></br>
+              			<a class="btn btn-small btn-danger"><i class="icon-thumbs-down"></i></a>
+                    <a class="btn btn-small btn-success"><i class="icon-thumbs-up"></i></a>
+                    <%= link_to "/meetups/#{m.id}/reviews/new", :class=>"btn btn-small" do%>
+              				<i class="icon-plus"></i>
+              			<%end%>
+              		</div>
+              	</li>
+            	<% end %>
+            </ul> 
+            <div class="clearfix"></div>
+            <a class="prev" id="notif_prev" href="#"><span>prev</span></a>
+            <a class="next" id="notif_next" href="#"><span>next</span></a>
+	        </div>
+	    	</div>
+	    </div>
+    </div>
+</div>
+<%end%>

@@ -12,26 +12,26 @@
 	<body>
     <div class="container">
       <div class="row">
-        <div class="offset3 span6">
+        <div class="offset4 span4">
         	<img src="/img/logo.png"></img>        
         </div>
-        <div class="span3"></div>
+        <div class="span4"></div>
       </div>
       <div class="row">
-        <div class="offset3 span6">
-          <span>A handy tool to find and schedule meetups with other dogs in your area</span>        
+        <div class="offset4 span4">
+          <span>A handy tool to find and schedule meetups with other dogs in your area</span></h4>        
         </div>
-        <div class="span3"></div>
+        <div class="span4"></div>
      	</div>
-     	<%= form_for @user_session, :as => :user_session, :url => { :action => 'create' } do |f| %>
-				<h2>Sign in</h2>
-			  <%= f.text_field :email, :placeholder => 'Email Address'%><br />
-			  <%= f.password_field :password, :placeholder => 'Password' %><br />
-			  <label class="checkbox">
-			  <%= f.check_box :remember_me %>Remember me
-			 	</label>
-			  <%= f.submit "Login" , :class =>"btn btn-large btn-primary"%>
-			<% end %>
+	     	<%= form_for @user_session, :as => :user_session, :class => 'img-polaroid',  :url => { :action => 'create' } do |f| %>
+					<h2>Sign in</h2>
+				  <%= f.text_field :email, :placeholder => 'Email Address'%><br />
+				  <%= f.password_field :password, :placeholder => 'Password' %><br />
+				  <label class="checkbox">
+				  <%= f.check_box :remember_me %> Remember me
+				 	</label>
+				  <%= f.submit "Login" , :class =>"btn btn-primary"%>
+				<% end %>
     </div>
   </body>
 </html>
