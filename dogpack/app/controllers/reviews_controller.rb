@@ -25,6 +25,9 @@ class ReviewsController < ApplicationController
   # GET /reviews/new.json
   def new
     @review = Review.new
+    @meetup = Meetup.find(params[:meetup_id])
+    other_user_id = @meetup.sender_id == current_user.id ? @meetup.recipient_id : @meetup.sender_id
+    @reviewee = User.find(other_user_id)
 
     respond_to do |format|
       format.html # new.html.erb
