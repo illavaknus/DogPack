@@ -30,6 +30,8 @@ a { text-decoration: none !important }
 .user-name { font-family: 'Coming Soon'; font-style: italic;}
 .member-name { font-family: 'Coming Soon'; font-style: italic; font-weight: bold; }
 
+.img-thumb { max-height:100px; max-width:140px; }
+
 .thumb {
     width: 100px;
 }

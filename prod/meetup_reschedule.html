@@ -6,6 +6,119 @@
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.css">
         <link rel="stylesheet" type="text/css" href="css/global.css">
+    <link rel="stylesheet" type="text/css" href="css/schedule.css"/>
+        <link rel="stylesheet" type="text/css" href="css/fullcalendar.css"/>
+        <!-- All the JavaScript links -->
+        <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/global.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/fullcalendar.min.js"></script>
+        <script type="text/javascript">
+            var places = [];
+            var othersEvents = {
+                events: [ // put the array in the `events` property
+                    {
+                        title  : 'othersName w/ Name',
+                        start  : '2013-05-8 17:00:00',
+                        end    : '2013-05-8 18:00:00',
+                        allDay : false 
+                    }],
+                color: 'red',
+                textColor: 'white'
+                
+            };
+            
+            var yourEvents =  {
+                events: [ // put the array in the `events` property
+                    {
+                        title  : 'yourName w/ Name',
+                        start  : '2013-05-7 17:00:00',
+                        end    : '2013-05-7 18:00:00',
+                        allDay : false
+                    }],
+                color: 'red',
+                textColor: 'white'
+            };
+            
+            $(document).ready(function() {
+                //Set up calendar
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    defaultView: 'agendaWeek', 
+                    editable: true,
+                    dayClick: function(date, allDay, jsEvent, view) {
+                        $('#calendar').fullCalendar('refetchEvents');
+                        $('#calendar').fullCalendar('renderEvent', {
+                            title: 'Meetup w/ Name',
+                            start: date,
+                            end: new Date(date.getTime()+(1000*60*60)),
+                            allDay: false,
+                            color: 'green',
+                            textColor: 'white'
+                        }, false);
+                        $('#inputMeetupTime').val(date.toUTCString());	
+                    },
+                    eventSources: [yourEvents, othersEvents],
+                    height: 500
+                });
+                //Typeahead for location input
+                $("#inputLocation").typeahead({source: places, updater: function(item) {
+                    this.$element[0].value = item;
+                    return item;
+                }})
+                $('.alert').hide();
+                $('#sendBtn').click(function(e){
+                    console.log('Send button clicked');
+                    if($("#inputLocation").val().length == 0 || $("#inputMeetupTime").val().length == 0 || $("#textAreaMessage").val().length == 0){
+                        $('.alert').show();
+                        e.preventDefault();
+                    }
+                });
+                
+                //Calendar for mobile
+                $('#calendar-phone').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    defaultView: 'agendaWeek', 
+                    editable: true,
+                    dayClick: function(date, allDay, jsEvent, view) {
+                        $('#calendar-phone').fullCalendar('refetchEvents');
+                        $('#calendar-phone').fullCalendar('renderEvent', {
+                            title: 'Meetup w/ Name',
+                            start: date,
+                            end: new Date(date.getTime()+(1000*60*60)),
+                            allDay: false,
+                            color: 'green',
+                            textColor: 'white'
+                        }, false);
+                        $('#inputMeetupTime-phone').val(date.toUTCString());	
+                    },
+                    eventSources: [yourEvents, othersEvents],
+                    height: 500
+                });
+                //Typeahead for location input
+                $("#inputLocation-phone").typeahead({source: places, updater: function(item) {
+                    this.$element[0].value = item;
+                    return item;
+                }})
+                $('.alert').hide();
+                $('#sendBtn-phone').click(function(e){
+                    console.log('Send button clicked');
+                    if($("#inputLocation-phone").val().length == 0 || $("#inputMeetupTime-phone").val().length == 0 || $("#textAreaMessage-phone").val().length == 0){
+                        $('.alert').show();
+                        e.preventDefault();
+                    }
+                });            
+                
+            });
+        </script>
     </head>
     <body>
         <!-- Navbar -->
@@ -59,6 +172,123 @@
         </div>
         <!-- Body for Desktops -->
         <div class="main-body container hidden-phone">
+<<<<<<< HEAD
+           <div class="row-fluid content-row">
+                <div class="row-fluid">
+                    <div class="row-fluid span10">
+                        <div class="row-fluid span12 content-header">Reschedule a meetup with <span id="dog-name"class="member-name">NAME</span></div>
+                        <div class="row-fluid span12"><span class="lead">MeetUp was previously scheduled at : <span id="meetup-time"></span></span></div>
+                    </div>
+                    <div class="row-fluid span2">
+                        <img id="dog-photo" src="http://placehold.it/140x100" class="img-polaroid img-thumb pull-right"> 
+                    </div>
+                </div>
+                <div class="row-fluid content-body">                    
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div id="calendar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <div class="row-fluid"><span class="label label-important">Info : </span> Red indicates busy timeslots.</div>
+                            <form>
+                                <div class="row-fluid">
+                                    <div class="span4">
+                                        <span class="lead">Time :</span>
+                                    </div>
+                                    <input class="span8" type="text" placeholder="Select a time slot in the calendar" id="inputMeetupTime" disabled>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span4">
+                                        <span class="lead">Location :</span>
+                                    </div>
+                                    <input class="span8" type="text" id="inputLocation" autocomplete="off" data-provide="typeahead" placeholder="Enter an address here...">
+                                </div>					
+                            </form>
+                        </div>
+                        <div class="span6">
+                            <span class="lead">Message : </span>
+                            <textarea id="textAreaMessage" class="span12" rows="5" placeholder="Enter your message here..."></textarea>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <a href="scheduleMeetup()" id="sendBtn" class="btn btn-success pull-right">Send Invite</a>
+                        <a onclick="goBack()" id="cancelBtn" class="btn btn-danger pull-right">Cancel</a>
+                    </div>
+                    
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="alert alert-error">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                Please fill out all the fields before sending the invitiation
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Body for Phones -->
+        <div class="main-body container-fluid visible-phone">
+             <div class="row-fluid content-row">
+                <div class="row-fluid">
+                    <div class="row-fluid span12">
+                        <div class="row-fluid span8 content-header">Rechedule a meetup with <span id="dog-name"class="member-name">NAME</span></div>
+                        <div class="row-fluid span4">
+                            <img src="http://placehold.it/140x100" class="img-polaroid img-thumb pull-right"> 
+                        </div>
+                    </div>
+                    <div class="row-fluid span12"><span class="lead">MeetUp was previously scheduled at : <span id="meetup-time"></span></span></div>
+                </div>
+                <div class="row-fluid content-body">                    
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div id="calendar-phone"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <div class="row-fluid"><span class="label label-important">Info : </span> Red indicates busy timeslots.</div>
+                            <form>
+                                <div class="row-fluid">
+                                    <div class="span4">
+                                        <span class="lead">Time :</span>
+                                    </div>
+                                    <input class="span8" type="text" placeholder="Select a time slot in the calendar" id="inputMeetupTime-phone" disabled>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span4">
+                                        <span class="lead">Location :</span>
+                                    </div>
+                                    <input class="span8" type="text" id="inputLocation-phone" autocomplete="off" data-provide="typeahead" placeholder="Enter an address here...">
+                                </div>					
+                            </form>
+                        </div>
+                        <div class="span6">
+                            <span class="lead">Message : </span>
+                            <textarea id="textAreaMessage-phone" class="span12" rows="5" placeholder="Enter your message here..."></textarea>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <a href="scheduleMeetup()" id="sendBtn-phone" class="btn btn-success pull-right">Send Invite</a>
+                        <a onclick="goBack()" id="cancelBtn-phone" class="btn btn-danger pull-right">Cancel</a>
+                    </div>
+                    
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="alert alert-error">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                Please fill out all the fields before sending the invitiation
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    
+=======
             <div class="row-fluid content-row">
                 <div class="row-fluid content-header">
                     <div class="span4">Some Header</div>
@@ -79,5 +309,6 @@
         <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="js/global.js"></script>
+>>>>>>> 52888f0f5510bf348d31fc9a97167bd52dc0aa8f
     </body>
 </html>
