@@ -1,5 +1,58 @@
-<h1>New meetup</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', meetups_path %>
+<script type="text/javascript" src="assets/fullcalendar.min.js"></script>
+<div class="main-body container">
+    <div class="row-fluid content-row">
+        <div class="row-fluid">
+            <div class="row-fluid span10">
+                <div class="row-fluid span12 content-header">Schedule a meetup with <span id="dog-name"class="member-name">NAME</span></div>
+                <div class="row-fluid span12"><span class="lead">MeetUp was previously scheduled at : <span id="meetup-time"></span></span></div>
+            </div>
+            <div class="row-fluid span2">
+                <img id="dog-photo" src="http://placehold.it/140x100" class="img-polaroid img-thumb pull-right"> 
+            </div>
+        </div>
+        <div class="row-fluid content-body">                    
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+            
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="row-fluid"><span class="label label-important">Info : </span> Red indicates busy timeslots.</div>
+                    <form>
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <span class="lead">Time :</span>
+                            </div>
+                            <input class="span8" type="text" placeholder="Select a time slot in the calendar" id="inputMeetupTime" disabled>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <span class="lead">Location :</span>
+                            </div>
+                            <input class="span8" type="text" id="inputLocation" autocomplete="off" data-provide="typeahead" placeholder="Enter an address here...">
+                        </div>					
+                    </form>
+                </div>
+                <div class="span6">
+                    <span class="lead">Message : </span>
+                    <textarea id="textAreaMessage" class="span12" rows="5" placeholder="Enter your message here..."></textarea>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <a href="scheduleMeetup()" id="sendBtn" class="btn btn-success pull-right">Send Invite</a>
+                <a onclick="goBack()" id="cancelBtn" class="btn btn-danger pull-right">Cancel</a>
+            </div>
+            
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="alert alert-error">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        Please fill out all the fields before sending the invitiation
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

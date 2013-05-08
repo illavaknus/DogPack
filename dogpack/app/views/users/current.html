@@ -18,15 +18,19 @@
 	            <ul id="notif">
 	            	<% @user.invitations.each do |m| %>
 	            		<li class="img-polaroid">
-	            			<div class="offset1 span3">
-	            			<%= image_tag m.sender.image_url %>
-	            			</div>
-	            			<div class="offset1 span7">
-	              			<%= m.sender.name %></br>
-	              			<%= m.date.strftime '%b %e, %l:%M %p' %></br>
-	              			<%= m.venue %></br>
-	              		</div>
-	              	</li>
+                            <div class="row-fluid">
+                                <div class="span5">
+		            			<%= image_tag m.sender.image_url %>
+                                </div>
+                                <div class="span1"></div>
+                                <div class="span6">
+		              			<%= m.sender.name %></br>
+		              			<%= m.date.strftime '%b %e, %l:%M %p' %></br>
+		              			<%= m.venue %></br>
+                                <button class="btn btn-small btn-info">View&raquo;</button>
+                                </div>
+                            </div>
+	              		</li>
 	            	<% end %>
 	            </ul> 
 	            <div class="clearfix"></div>
@@ -56,7 +60,7 @@
                                 <button class="btn btn-small btn-info">View&raquo;</button>
                                 </div>
                             </div>
-	              	</li>
+	              		</li>
 	            	<% end %>
 	            </ul> 
 	            <div class="clearfix"></div>
@@ -73,7 +77,7 @@
 	        <div class="list_carousel span12">
             <ul id="previous">
             	<% @user.previous_meetups.each do |m| %>
-            		<li class="img-polaroid">
+	            		<li class="img-polaroid">
                             <div class="row-fluid">
                                 <div class="span5">
 		            			<%= image_tag m.sender.image_url %>
