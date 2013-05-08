@@ -40,11 +40,19 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    @review = Review.new(params[:review])
-
+    if params[:review] and !params[:review].empty?
+      @review = Review.new(params[:review])
+    else
+      m = Meetup.find(params[:meetup_id])
+      other_user_id = m.sender_id == current_user.id ? m.recipient_id : m.sender_id
+      @review = Review.new(:meetup_id => params[:meetup_id],
+                           :reviewer_id => current_user.id,
+                           :reviewee_id => other_user_id,
+                           :positive => params[:positive])
+    end
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to '/', notice: 'Your review was submitted' }
         format.json { render json: @review, status: :created, location: @review }
       else
         format.html { render action: "new" }

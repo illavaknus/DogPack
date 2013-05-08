@@ -9,7 +9,7 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-	<body>
+	<body id="loginBody">
     <div class="container">
       <div class="row">
         <div class="offset4 span4">
@@ -23,7 +23,7 @@
         </div>
         <div class="span4"></div>
      	</div>
-	     	<%= form_for @user_session, :as => :user_session, :class => 'img-polaroid',  :url => { :action => 'create' } do |f| %>
+	     	<%= form_for @user_session, :as => :user_session, :html => {:id => 'loginForm', :class => 'img-polaroid'},  :url => { :action => 'create' } do |f| %>
 					<h2>Sign in</h2>
 				  <%= f.text_field :email, :placeholder => 'Email Address'%><br />
 				  <%= f.password_field :password, :placeholder => 'Password' %><br />

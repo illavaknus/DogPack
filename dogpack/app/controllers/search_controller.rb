@@ -1,10 +1,11 @@
 class SearchController < ApplicationController
   
   
-  def index
-    @users = User.all
+  def search
+    gon.dogs = User.all
+    
     respond_to do |format|
-      format.html #index.html.erb
+      format.html #search.html.erb
     end
   end
   

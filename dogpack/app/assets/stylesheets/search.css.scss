@@ -1,3 +1,23 @@
 // Place all the styles related to the search controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#searchTabContent {
+  height:400px;
+}
+
+#mapCanvas {
+  height:400px;
+}
+
+.search-result {
+  margin: 5px;
+}
+
+#mapCanvas img {
+    max-width: none;
+}
+
+.map-btn {
+  float: right;
+  margin-left: 10px;
+}

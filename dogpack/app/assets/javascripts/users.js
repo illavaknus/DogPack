@@ -123,6 +123,28 @@ $(document).ready(function() {
             key     : "right",
             items   : 2,
             duration  : 1000
-        }                 
+        }     
     });
+    
+
+	$(".badReview").on('click', function(){
+		$.ajax({
+			type : 'POST',
+			url : '/meetups/' + this.value + '/reviews?positive=false',
+			success : function(data) {},
+			error : function() {}
+		});
+		$(".btn[value="+this.value+"]").addClass("disabled")
+	});
+
+	$(".goodReview").on('click', function(){
+		$.ajax({
+			type : 'POST',
+			url : '/meetups/' + this.value + '/reviews?positive=true',
+			success : function(data) {},
+			error : function() {}
+		});
+		$(".btn[value="+this.value+"]").addClass("disabled")
+	});
+
 });

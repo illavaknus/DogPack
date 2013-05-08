@@ -107,6 +107,7 @@ GEM
     uglifier (2.0.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -121,3 +122,4 @@ DEPENDENCIES
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  yajl-ruby
