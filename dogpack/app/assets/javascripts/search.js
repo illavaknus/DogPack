@@ -1,7 +1,8 @@
 var placeToPosition = { harvardsquare:{lat:42.373442,lng:-71.11895}, beaconhill:{lat:42.361065,lng:-71.068926},
 												portersquare:{lat:42.388857,lng:-71.119398}, kendallsquare:{lat:42.362874,lng:-71.090097},
 												mit:{lat:42.358867,lng:-71.093825}, beaconhill:{lat:42.350265,lng:-71.080976},
-												fenway:{lat:42.342865,lng:-71.100288}, centralsquare:{lat:42.365334,lng:-71.104466} }
+												fenway:{lat:42.342865,lng:-71.100288}, centralsquare:{lat:42.365334,lng:-71.104466},
+												backbay:{lat:42.350265,lng:-71.080976} }
 												
 var places = ["Harvard Square", "Porter Square", "Beacon Hill", "Kendall Square", "MIT", "Back Bay", "Fenway", "Central Square"];
 var dogs = gon.dogs;

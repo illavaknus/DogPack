@@ -45,6 +45,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fullcalendar-rails (1.5.4.0)
     gon (4.0.2)
       actionpack (>= 2.3.0)
       json
@@ -116,10 +117,11 @@ DEPENDENCIES
   authlogic
   bootstrap-sass
   coffee-rails (~> 3.2.1)
+  fullcalendar-rails
   gon
   jquery-rails
   pg
   rails (= 3.2.11)
-  sass-rails (~> 3.2.3)
+  sass-rails
   uglifier (>= 1.0.3)
   yajl-ruby

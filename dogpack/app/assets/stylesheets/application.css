@@ -9,23 +9,41 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require_tree
  */
 
 .main-body { 
-	background-color: #ECF0F1; 
+	/*background-color: #ECF0F1;*/
 	margin-top: 20px; padding:10pt; 
 }
-
-
 .username { 
 	font-family: 'Coming Soon'; 
 	font-style: italic;
+	font-weight: bold;
 }
 
-.membername { 
+/*.membername { 
 	font-family: 'Coming Soon'; 
 	font-style: italic; 
 	font-weight: bold; 
+}*/
+
+.content-row { 
+	margin-bottom: 20px; 
 }
 
+.content-header { 
+	margin-bottom: 25px; 
+}
+
+.content-body {
+	margin-bottom: 20px; 
+}
+
+.content-footer {
+	padding-bottom: 20px; 
+}
+
+.profile-picture {
+	
+}

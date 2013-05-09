@@ -1,6 +1,59 @@
-<h1>Editing meetup</h1>
+<div class="main-body container">
+	<div class="row-fluid content-header">
+		<div class="span12">
+			<span class="lead header-text"><span class="username"><%= @sender.name%></span> has sent you an invitiation!</span>
+		</div>
+	</div>
+	<div class="row-fluid content-row">
+		<div class="span4">
+    	<img id="profilePicture" class="img-polaroid profile-picture" src="<%= @sender.image_url%>">
+		</div>
+		<div class="span8 lead">
+      <div class="row-fluid">
+      	<span class="span2"><i>When:</i></span>
+      	<span class="span6" id="date"><%= @meetup.date.strftime '%b %e, %l:%M %p' %></span>
+      </div>
+      <div class="row-fluid">
+      	<span class="span2"><i>Where:</i></span>
+      	<span class="span6"><%= @meetup.venue %></span>
+      </div>
+			<div class="row-fluid">
+				<span class="span2"><i>Message:</i></span>
+				<span class="span6"><%= @meetup.message %></span>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<span class="lead"> Your Availability </span>
+			<div class="row-fluid">
+				<div class="span12 hero-unit">
+					<% if @meetups.count == 0 %>
+					<span>Nothing scheduled for today</span>
+					<% else %>
+					<ul list="availabilityList">
+					<%= @meetups.each do |m| %>
+					<li>Meeting with <%= m.other(current_user).name %> at <%= m.date.strftime '%b %e, %l:%M %p'%></li>
+					<%end%>
+					</ul>
+					<%end%>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid content-footer">
+		<%= form_for @meetup, :url => { :action => 'update' } do |f| %>
+		<div class="span12 btn-toolbar">
+			<input type="hidden" name="meetup[accept_status]" value="-1" />
+			<% if @meetup.accept_status == 0 %>
+			<%= f.submit "Reject" , :class =>"btn btn-danger btn-large"%>
+			<%= f.submit "Accept" , :class =>"btn btn-success btn-large"%>
+			<% else %>
+			<%= f.submit "Cancel" , :class =>"btn btn-danger btn-large"%>
+			<% end%>
+			<a class="btn btn-warning btn-large" href="/meetups/new?recipient_id=<%= @sender.id%>&prev_meetup_id=<%=@meetup.id%>">Reschedule</a>
+		</div>
+		<%end%>
+	</div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @meetup %> |
-<%= link_to 'Back', meetups_path %>

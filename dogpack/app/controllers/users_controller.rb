@@ -20,24 +20,5 @@ class UsersController < ApplicationController
       format.html # show.html.erb
     end
   end
-  
-  # GET /users/new
-  def new
-    @user = User.new
-  end
-  
-  # Create a new user
-  # On success redirect to login screen
-  # On failure, return back to new
-  def create
-    @user = User.new(params[:user])
-    respond_to do |format|
-      if @user.save
-        redirect_to  '/login', :notice => "User created!"
-      else
-        render :action => :new
-      end
-    end
-  end
 
 end

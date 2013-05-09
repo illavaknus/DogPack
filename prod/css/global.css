@@ -51,10 +51,6 @@ height:300px;
 }
 */
 
-.content-row { margin-bottom: 20px; }
-
-.content-header { font-family: 'Happy Monkey', cursive; font-size: 16pt; font-weight:bold; }
-
 .content-body { }
 
 .content-body > img { max-width:100%; }

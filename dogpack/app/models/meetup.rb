@@ -11,5 +11,9 @@ class Meetup < ActiveRecord::Base
   def has_reviewed(user)
     return self.reviews.where("reviewer_id = #{user.id}").count > 0
   end
+  
+  def other(user)
+    return self.sender_id == user.id ? self.recipient : self.sender
+  end
 
 end
