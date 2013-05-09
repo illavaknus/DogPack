@@ -29,4 +29,13 @@ class User < ActiveRecord::Base
   has_many :reviews, :foreign_key => 'reviewee_id', :dependent => :destroy
 
 
+  def rating
+    positive_count = self.reviews.where("positive = true").count
+    if self.reviews.count == 0
+      return 0
+    else
+      return ((positive_count/self.reviews.count) * 100)
+    end
+  end
+
 end

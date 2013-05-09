@@ -11,18 +11,18 @@ var mapWidgets = [];
 var map;
 
 function mapWidgetFor(dog){
-	div = "<a href='/users/"+dog.id+"'><img class='span1' src='"+dog.image_url+"'></a>";
-	div += "<div class='span2'><p><a href='/users/"+dog.id+"'><strong>"+ dog.name +"</strong></a>";
-	div += "<br>"+ dog.breed +":</br>"+ dog.age +"</p></div>"
+	div = "<div class='row-fluid lead'><a href='/users/"+dog.id+"'><img class='span4' src='"+dog.image_url+"'></a>";
+	div += "<div class='span8'><p><a href='/users/"+dog.id+"'><strong>"+ dog.name +"</strong></a>";
+	div += "<br>"+ dog.breed +"</br>"+ dog.age +"</p></div>"
 	return div;
 }
 
 function searchResultsInit(){
 	var div;
 	for(var i= 0; i < dogs.length; ++i){
-		div = "<div class='row search-result img-polaroid'><div class='span6'><a href='/users/"+dogs[i].id+"'><img class='span3 img-polaroid' src='";
-		div += dogs[i].image_url+"'></a></div><div class='span5'><p class='text-right lead'><a href='/users/"+dogs[i].id;
-		div += "'><strong>"+dogs[i].name+"</strong></a></br>"+dogs[i].breed+"</br>"+dogs[i].age+"</p></div></div>";
+		div = "<div class='row-fluid list-item img-polaroid'><div class='span4'><a href='/users/"+dogs[i].id+"'><img class='span3' src='";
+		div += dogs[i].image_url+"'></a></div><div class='span8'><p class='lead'><a href='/users/"+dogs[i].id;
+		div += "'><strong>"+dogs[i].name+"</strong></a></br>"+dogs[i].breed+"</br>"+dogs[i].location+"</p></div></div>";
 		$("#listView").append(div);
 	}
 }

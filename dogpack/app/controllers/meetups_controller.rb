@@ -1,22 +1,22 @@
 class MeetupsController < ApplicationController
   
   # GET /meetups
-  def index
-    @meetups = Meetup.all
+  # def index
+    # @meetups = Meetup.all
+# 
+    # respond_to do |format|
+      # format.html # index.html.erb
+    # end
+  # end
 
-    respond_to do |format|
-      format.html # index.html.erb
-    end
-  end
-
-  # GET /meetups/1
-  def show
-    @meetup = Meetup.find(params[:id])
-    
-    respond_to do |format|
-      format.html # show.html.erb
-    end
-  end
+  # # GET /meetups/1
+  # def show
+    # @meetup = Meetup.find(params[:id])
+#     
+    # respond_to do |format|
+      # format.html # show.html.erb
+    # end
+  # end
 
   # GET /meetups/new
   def new
@@ -25,7 +25,7 @@ class MeetupsController < ApplicationController
     
     @recipient_meetups = []
     @recipient.upcoming_meetups.each do |m|
-      @recipient_meetups.push({:title=> recipient.name, :start=> m.date.strftime('%m-%d-%Y %H:%M:%S'), :end=> (m.date + 1.hour).strftime('%m-%d-%Y %H:%M:%S'), :allDay=> false})
+      @recipient_meetups.push({:title=> @recipient.name, :start=> m.date.strftime('%m-%d-%Y %H:%M:%S'), :end=> (m.date + 1.hour).strftime('%m-%d-%Y %H:%M:%S'), :allDay=> false})
     end
     
     @my_meetups = []
@@ -49,7 +49,7 @@ class MeetupsController < ApplicationController
   # GET /meetups/1/edit
   def edit
     @meetup = Meetup.find(params[:id])
-    @meetups = Meetup.all(:conditions => ["DATE(created_at) = DATE(?) AND (sender_id = ? OR recipient_id = ?) ", @meetup.date, current_user.id, current_user.id])
+    @meetups = Meetup.all(:conditions => ["DATE(date) = DATE(?) AND (sender_id = ? OR recipient_id = ?) AND accept_status = 1", @meetup.date, current_user.id, current_user.id])
     @current_user = current_user;
     @sender = @meetup.other(@current_user)
   end
@@ -60,7 +60,15 @@ class MeetupsController < ApplicationController
 
     respond_to do |format|
       if @meetup.save
-        format.html { redirect_to "/", notice: 'Invtation was sent' }
+       if(@meetup.prev_meetup_id.nil? )
+          response = "Meetup invitation was sent"
+        else
+          prev = Meetup.find(@meetup.prev_meetup_id)
+          prev.accept_status = -1
+          prev.save
+          response = "Meetup was rescheduled"
+        end
+        format.html { redirect_to "/", notice: response }
       else
         format.html { render action: "new" }
       end
@@ -75,7 +83,7 @@ class MeetupsController < ApplicationController
     if action == "Reject" || action == "Cancel" 
       @meetup.accept_status = -1;
       if action == "Reject"
-        response = "Invitatin was rejected"
+        response = "Invitation was rejected"
       else
         response = "Meetup was cancelled"
       end

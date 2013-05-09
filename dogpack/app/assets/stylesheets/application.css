@@ -13,13 +13,8 @@
  */
 
 .main-body { 
-	/*background-color: #ECF0F1;*/
+	background-color: #ECF0F1;
 	margin-top: 20px; padding:10pt; 
-}
-.username { 
-	font-family: 'Coming Soon'; 
-	font-style: italic;
-	font-weight: bold;
 }
 
 /*.membername { 
@@ -46,4 +41,18 @@
 
 .profile-picture {
 	
+}
+
+.list-item {
+	height: 100px;
+	margin-bottom: 5px;
+}
+.list-item img {
+	height: 100%;
+}
+
+.v-align {
+	display: block;
+	margin-top: auto;
+	margin-bottom: auto;
 }

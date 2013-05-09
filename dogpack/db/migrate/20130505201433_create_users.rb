@@ -11,7 +11,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :owner    
       t.string :image_url
-      t.integer :age
+      t.string :age
       t.string :breed
       t.string :size
       t.string :location
