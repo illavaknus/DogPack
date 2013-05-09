@@ -1,12 +1,12 @@
 Dogpack::Application.routes.draw do
 
-  match '/' => "users#current"
-  
-  match '/login' => "user_sessions#new",      :as => :login
-  match '/logout' => "user_sessions#destroy", :as => :logout
+  devise_for :users
+
+  root :to => "users#current"
+    
   match '/search' => "search#search",         :as => :search
      
-  resources :user_sessions, :users, :meetups
+  resources :users, :meetups
   
   resources :meetups do
     resources :reviews

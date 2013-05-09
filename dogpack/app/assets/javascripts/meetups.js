@@ -35,7 +35,7 @@ $(document).ready(function() {
                 textColor: 'white'
             }, false);
             $('#inputMeetupTime').val(date.toLocaleString());
-            $('#hiddenTime').val(date.toLocaleString());	
+            $('#hiddenTime').val(date.getTime()/1000);	
 
         },
         eventSources: [yourEvents, othersEvents],
@@ -76,8 +76,8 @@ $(document).ready(function() {
                 color: 'green',
                 textColor: 'white'
             }, false);
-            $('#inputMeetupTime-phone').val(date.toUTCString());
-            $('#hiddenTime').val(date.toLocaleString());	
+            $('#inputMeetupTime-phone').val(date.toLocaleString());
+            $('#hiddenTime').val(date.getTime()/1000);	
 
         },
         eventSources: [yourEvents, othersEvents],

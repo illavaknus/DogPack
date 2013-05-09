@@ -1,7 +1,14 @@
 class User < ActiveRecord::Base
-  acts_as_authentic
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
   
-  attr_accessible :name, :email, :owner, :image_url, :age, :breed, :size, :location, :longitude, :latitude, :overall_rating
+  attr_accessible :name, :owner, :image_url, :age, :breed, :size, :location, :longitude, :latitude, :overall_rating
   
   has_many  :previous_meetups, :finder_sql => proc{
             "SELECT * FROM meetups "+

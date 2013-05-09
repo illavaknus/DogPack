@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
-  before_filter :require_login, :only => [:current, :show]
-  before_filter :no_require_login, :only => [:new, :create]
+  
+  before_filter :authenticate_user!
   
   #GET /
   def current

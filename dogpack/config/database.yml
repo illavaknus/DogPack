@@ -22,4 +22,4 @@ test:
 
 production:
   adapter: postgresql
-  database: dogpack_test
+  database: dogpack_production

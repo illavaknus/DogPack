@@ -1,11 +1,6 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      #Login Details
-      t.string :email,              :null => false
-      t.string :crypted_password,   :null => false
-      t.string :password_salt,      :null => false
-      t.string :persistence_token,  :null => false
       
       #Model Attributrs
       t.string :name

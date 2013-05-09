@@ -1,5 +1,7 @@
 class MeetupsController < ApplicationController
   
+   before_filter :authenticate_user!
+   
   # GET /meetups
   # def index
     # @meetups = Meetup.all
@@ -57,7 +59,8 @@ class MeetupsController < ApplicationController
   # POST /meetups
   def create
     @meetup = Meetup.new(params[:meetup])
-
+    @meetup.date = Time.at(params[:meetup][:date].getlocal)
+    
     respond_to do |format|
       if @meetup.save
        if(@meetup.prev_meetup_id.nil? )
@@ -66,7 +69,7 @@ class MeetupsController < ApplicationController
           prev = Meetup.find(@meetup.prev_meetup_id)
           prev.accept_status = -1
           prev.save
-          response = "Meetup was rescheduled"
+          response = "Rescheduling request was sent"
         end
         format.html { redirect_to "/", notice: response }
       else

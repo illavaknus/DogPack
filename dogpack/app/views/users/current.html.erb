@@ -1,11 +1,10 @@
 <script type="text/javascript" src="/assets/users.js"></script>
 <!-- Body for Desktops and Mobile Browsers -->
-<% ['hidden-phone', 'visible-phone'].each do |c| %>
-<div class="main-body container <%= c %>">
+<div class="main-body container">
 	<div class="row-fluid content-header">
 	  <div class="span7">
 	 	 	<span class="lead header-text">Welcome <span class="username"><%= @user.name %></span></span>
-	 	 </br></br><span class="lead header-text">You have <span class="username"><%= @user.invitations.count %></span> pending meetup invitation<% if @user.invitations.count > 1 %>s<%end%></span>
+	 	 </br></br><span class="lead header-text">You have <span class="username"><%= @user.invitations.count %></span> pending meetup invitation<% if @user.invitations.count != 1 %>s<%end%></span>
 		</div>
 		<div class="span5">
 		  <img id="dog-photo" src="<%= @user.image_url %>" class="span5 pull-right"> 
@@ -55,9 +54,15 @@
 										<span class="span8">With <span class="username"><%= m.sender.name %></span> on <%= m.date.strftime '%b %e, %l:%M %p' %> at <%= m.venue %></span>
 								</div>
 								<div class="span2">
+									<% if m.has_reviewed(@user) %>
+            			<button class="btn btn-small btn-danger badReview disabled" value="<%=m.id%>"><i class="icon-thumbs-down"></i></button>
+                  <button class="btn btn-small btn-success goodReview disabled" value="<%=m.id%>"><i class="icon-thumbs-up"></i></button>
+                  <a href="<%= "/meetups/#{m.id}/reviews/new"%>"><button class="btn btn-small disabled" value="<%=m.id%>"><i class="icon-plus"></i></button></a>
+                  <%else%>
             			<button class="btn btn-small btn-danger badReview" value="<%=m.id%>"><i class="icon-thumbs-down"></i></button>
                   <button class="btn btn-small btn-success goodReview" value="<%=m.id%>"><i class="icon-thumbs-up"></i></button>
                   <a href="<%= "/meetups/#{m.id}/reviews/new"%>"><button class="btn btn-small" value="<%=m.id%>"><i class="icon-plus"></i></button></a>
+                  <%end%>
 								</div>
 							</div>
           	<% end %>
@@ -72,4 +77,3 @@
 		</div>
 	</div>
 </div>
-<%end%>

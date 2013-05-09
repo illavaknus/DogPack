@@ -11,20 +11,22 @@
   </head>
 	<body id="loginBody">
     <div class="container">
-      <div class="row">
+      <div class="row-fluid">
         <div class="offset4 span4">
         	<img src="/img/logo.png"></img>        
         </div>
         <div class="span4"></div>
       </div>
-      <div class="row">
+      <div class="row-fluid">
         <div class="offset4 span4">
-          <span>A handy tool to find and schedule meetups with other dogs in your area</span></h4>        
+          <span class="lead">A handy tool to find and schedule meetups with other dogs in your neighborhood</span>      
         </div>
         <div class="span4"></div>
      	</div>
-	     	<%= form_for @user_session, :as => :user_session, :html => {:id => 'loginForm', :class => 'img-polaroid'},  :url => { :action => 'create' } do |f| %>
-					<h2>Sign in</h2>
+     	<div class="row-fluid">
+     		<div id= "loginDiv" class="offset4 span4">
+	     	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+					<span class="lead">Sign in</span></br>
 				  <%= f.text_field :email, :placeholder => 'Email Address'%><br />
 				  <%= f.password_field :password, :placeholder => 'Password' %><br />
 				  <label class="checkbox">
@@ -32,6 +34,11 @@
 				 	</label>
 				  <%= f.submit "Login" , :class =>"btn btn-primary"%>
 				<% end %>
+				<%= render "devise/shared/links" %>
+				</div>
+				<div class="span4"></div>
+			</div>
     </div>
   </body>
 </html>
+
