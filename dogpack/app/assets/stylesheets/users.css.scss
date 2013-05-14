@@ -1,70 +1,25 @@
 // Place all the styles related to the users controller here.
 
-.list_carousel {
-  position: relative;
+.list-item {
+  
 }
 
-.list_carousel ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: block;
-}
-
-.list_carousel li {
-  color: #666;
-  text-align: center;
-  background-color: #f0f0f0;
-  border: 5px solid #ccc;
-  width: 100px;
+.list-item img {
   height: 100px;
-  padding: 0;
-  margin: 6px;
-  display: block;
-  float: left;
+  overflow: hidden;
 }
 
-.list_carousel li div img {
-  height: 90%;
-  width: auto;
-  top:0;
-  bottom:0;
-  margin:auto;
+.btn-div {
+  height: 100%;
 }
 
-.list_carousel li div button {
-  margin-top: 5px;
+.btn-div .btn {
+  margin-top: 30px;
+  margin-right: 10px;
 }
 
-a.prev, a.next {
-  background: url(/assets/miscellaneous_sprite.png) no-repeat transparent;
-  width: 45px;
-  height: 50px;
-  display: block;
-  position: absolute;
-  top: 85px;
-}
-
-a.prev {      
-  left: -22px;
-  background-position: 0 0; 
-}
-
-a.prev:hover {    
-  background-position: 0 -50px;
-}
-
-a.next {
-  right: -22px;
-  background-position: -50px 0;
-}
-
-a.next:hover {    
-  background-position: -50px -50px;
-}
-
-a.prev span, a.next span {
-    display: none;
+.btn-group-div {
+  margin-top: 30px;
 }
 
 .clearfix {
@@ -75,12 +30,3 @@ a.prev span, a.next span {
 .content-row { 
   margin-bottom: 20px; 
 }
-
-// .content-body { }
-// 
-// .content-body > img { max-width:100%; }
-
-
-// #meetupButton {
-  // margin: auto;
-// }
