@@ -28,7 +28,7 @@
           	<% @user.invitations.each do |m| %>
 	        		<div class="fluid-row list-item img-polaroid">
           			<div class="span4">
-          			<%= image_tag m.sender.image_url, :class => 'span4'%>
+          			<%= image_tag m.sender.image_url%>
           			</div>
 						    <div class="span6 lead">
 										<span class="span8">From <span class="username"><%= m.sender.name %></span> for <%= m.date.strftime '%b %e, %l:%M %p' %> at <%= m.venue %></span>
@@ -43,7 +43,7 @@
           	<% @user.upcoming_meetups.each do |m| %>
 	        		<div class="fluid-row list-item img-polaroid">
           			<div class="span4">
-          			<%= image_tag m.sender.image_url, :class => 'span4'%>
+          			<%= image_tag m.sender.image_url%>
           			</div>
 						    <div class="span6 lead">
 										<span class="span8">With <span class="username"><%= m.sender.name %></span> on <%= m.date.strftime '%b %e, %l:%M %p' %> at <%= m.venue %></span>
@@ -58,7 +58,7 @@
           	<% @user.previous_meetups.each do |m| %>
 	        		<div class="fluid-row list-item img-polaroid">
           			<div class="span4">
-          			<%= image_tag m.sender.image_url, :class => 'span4'%>
+          			<%= image_tag m.sender.image_url%>
           			</div>
 						    <div class="span6 lead">
 										<span class="span8">With <span class="username"><%= m.sender.name %></span> on <%= m.date.strftime '%b %e, %l:%M %p' %> at <%= m.venue %></span>
