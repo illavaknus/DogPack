@@ -20,7 +20,7 @@ function mapWidgetFor(dog){
 function searchResultsInit(){
 	var div;
 	for(var i= 0; i < dogs.length; ++i){
-		div = "<div class='row-fluid list-item img-polaroid'><div class='span4'><a href='/users/"+dogs[i].id+"'><img class='span3' src='";
+		div = "<div class='row-fluid list-item img-polaroid'><div class='span4'><a href='/users/"+dogs[i].id+"'><img src='";
 		div += dogs[i].image_url+"'></a></div><div class='span8'><p class='lead'><a href='/users/"+dogs[i].id;
 		div += "'><strong>"+dogs[i].name+"</strong></a></br>"+dogs[i].breed+"</br>"+dogs[i].location+"</p></div></div>";
 		$("#listView").append(div);
@@ -48,41 +48,41 @@ var addMarkers = function(map){
 	});				
 }
 
-	$(function() {
-			//Initialzie html for markers
-			for(i=0; i < dogs.length; ++i){
-				mapWidgets.push(mapWidgetFor(dogs[i]));
-			}
-			
-			searchResultsInit();
-			
-			//Initialize map widget
-			$('#mapCanvas').gmap({
-				'center' : '42.358448800000000000,-71.091220400000000000',
-				'zoom' : 16,
-				'callback' : function() {
-					addMarkers(this);
-				}
-			});
-			
-			map = $('#mapCanvas').gmap('get','map');
-			
-			//Location button click event
-			$("#locationButton").click(function(){
-				var origin = new google.maps.LatLng('42.358448800000000000', '-71.091220400000000000');
-				map.setOptions({'center':origin});
-			});
-			
-			//Form submission event
-			$("#mapForm").submit(function(){
-				search();
-				return false;
-			});
-			
-			//Bind autocomplete to the textfield
-			$("#searchTextField").typeahead({source: places, updater: function(item) {
-    		this.$element[0].value = item;
-    		search();
-    		return item;
-			}})       	
-		}).load();
+$(function() {
+	//Initialzie html for markers
+	for(i=0; i < dogs.length; ++i){
+		mapWidgets.push(mapWidgetFor(dogs[i]));
+	}
+	
+	searchResultsInit();
+	
+	//Initialize map widget
+	$('#mapCanvas').gmap({
+		'center' : '42.358448800000000000,-71.091220400000000000',
+		'zoom' : 16,
+		'callback' : function() {
+			addMarkers(this);
+		}
+	});
+	
+	map = $('#mapCanvas').gmap('get','map');
+	
+	//Location button click event
+	$("#locationButton").click(function(){
+		var origin = new google.maps.LatLng('42.358448800000000000', '-71.091220400000000000');
+		map.setOptions({'center':origin});
+	});
+	
+	//Form submission event
+	$("#mapForm").submit(function(){
+		search();
+		return false;
+	});
+	
+	//Bind autocomplete to the textfield
+	$("#searchTextField").typeahead({source: places, updater: function(item) {
+	this.$element[0].value = item;
+	search();
+	return item;
+	}})       	
+}).load();
