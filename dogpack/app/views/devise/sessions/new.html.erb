@@ -24,7 +24,7 @@
         <div class="span4"></div>
      	</div>
      	<div class="row-fluid">
-     		<div id= "loginDiv" class="offset4 span4">
+     		<div id= "loginDiv" class="form-signin">
 	     	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 					<span class="lead">Sign in</span></br>
 				  <%= f.text_field :email, :html => { :class => "row-fluid"}, :placeholder => 'Email Address'%><br />
