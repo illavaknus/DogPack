@@ -61,7 +61,7 @@ class ReviewsController < ApplicationController
     
     respond_to do |format|
       if @review.save
-        format.html { redirect_to '/', notice: 'Your review was submitted' }
+        format.html { redirect_to '/', notice: "Your review of #{@review.reviewee.name} was submitted" }
         format.json { render json: @review, status: :created, location: @review }
       else
         format.html { render action: "new" }
@@ -77,7 +77,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.update_attributes(params[:review])
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to @review, notice: "Your review of #{@review.reviewee.name} was updated" }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
