@@ -34,6 +34,11 @@
 		<div class="span12">
 			<div class="tabbable tabs-below">
 				<div id="searchTabContent" class="tab-content">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#tab1" data-toggle="tab">Invitations</a></li>
+					<li><a href="#tab2" data-toggle="tab">Upcoming Meetups</a></li>
+					<li><a href="#tab3" data-toggle="tab">Previous Meetups</a></li>
+				</ul>
 					<div class="tab-pane active" id="tab1">
           	<% @user.invitations.each do |m| %>
 	        		<div class="fluid-row list-item img-polaroid">
@@ -88,11 +93,6 @@
           	<% end %>
 					</div>
 				</div>
-				<ul class="nav nav-tabs">
-					<li class="active"><a href="#tab1" data-toggle="tab">Invitations</a></li>
-					<li><a href="#tab2" data-toggle="tab">Upcoming Meetups</a></li>
-					<li><a href="#tab3" data-toggle="tab">Previous Meetups</a></li>
-				</ul>
 			</div>
 		</div>
 	</div>
