@@ -27,7 +27,7 @@
      		<div id= "loginDiv" class="offset4 span4">
 	     	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 					<span class="lead">Sign in</span></br>
-				  <%= f.text_field :email, :placeholder => 'Email Address'%><br />
+				  <%= f.text_field :email, :html => { :class => "row-fluid"}, :placeholder => 'Email Address'%><br />
 				  <%= f.password_field :password, :placeholder => 'Password' %><br />
 				  <label class="checkbox">
 				  <%= f.check_box :remember_me %> Remember me

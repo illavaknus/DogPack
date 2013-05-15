@@ -9,12 +9,17 @@
 		<% if i % 3 == 0 %>
 		<div class="row-fluid">
 		<% end %>
-			<div id="dog1" class="span4">
-				<a href="/users/<%= u.id %>"><img class="grid-photo" src="<%= u.image_url %>"></img></a>
-				<div class="row-fluid">
-					<span class="span5 lead username"><a href="/users/<%= u.id %>"><%= u.name %></a></span>
-					<span class="span7 lead"><a class="btn btn-small btn-primary" href="/meetups/new?recipient_id=<%= u.id %>">Meetup!</a></span>
+			<div id="dog1" class="span4 row-fluid">
+				<div class="span2"></div>
+				<div class="span8">
+					<a href="/users/<%= u.id %>"><img class="grid-photo img-polaroid" src="<%= u.image_url %>"></img></a>
+					<div class="row-fluid">
+						<div class="span5 lead username"><a href="/users/<%= u.id %>"><%= u.name %></a></div>
+						<div class="span2"></div>
+						<div class="span5 lead"><a class="btn btn-small btn-primary" href="/meetups/new?recipient_id=<%= u.id %>">Meetup!</a></div>
+					</div>
 				</div>
+				<div class="span2"></div>
 			</div>
 		<% if i % 3 == 2 %>
 		</div>
