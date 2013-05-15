@@ -20,9 +20,11 @@ function mapWidgetFor(dog){
 function searchResultsInit(){
 	var div;
 	for(var i= 0; i < dogs.length; ++i){
-		div = "<div class='row-fluid list-item img-polaroid'><div class='span4'><a href='/users/"+dogs[i].id+"'><img src='";
-		div += dogs[i].image_url+"'></a></div><div class='span8'><p class='lead'><a href='/users/"+dogs[i].id;
-		div += "'><strong>"+dogs[i].name+"</strong></a></br>"+dogs[i].breed+"</br>"+dogs[i].location+"</p></div></div>";
+		div = "<div class='row-fluid list-item img-polaroid'><div class='span3'><a href='/users/"+dogs[i].id+"'><img src='";
+		div += dogs[i].image_url+"'></a></div><div class='span5'><p class='lead'><a href='/users/"+dogs[i].id;
+		div += "'><strong>"+dogs[i].name+"</strong></a></br>"+dogs[i].breed+"</br>"+dogs[i].location+"</p></div>";
+		div += "<div class='span4 btn-div'><a class='btn btn-info' href='/users/"+dogs[i].id+"'>View Profile</a>";
+		div += "<a class='btn btn-primary' href='/meetups/new?recipient_id="+dogs[i].id+"'>Meet Up!</a></div></div>";
 		$("#listView").append(div);
 	}
 }
