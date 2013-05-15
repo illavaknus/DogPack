@@ -59,7 +59,7 @@ class MeetupsController < ApplicationController
   # POST /meetups
   def create
     @meetup = Meetup.new(params[:meetup])
-    @meetup.date = Time.at(params[:meetup][:date].getlocal)
+    @meetup.date = Time.at(params[:meetup][:date].to_i)
     
     respond_to do |format|
       if @meetup.save
