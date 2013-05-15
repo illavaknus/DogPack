@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   
   layout :layout
 
-  private
+  before_filter :set_timezone 
+
+  def set_timezone  
+    Time.zone = current_user.time_zone if current_user
+  end 
 
   def layout
     # only turn it off for login pages:
@@ -11,5 +15,7 @@ class ApplicationController < ActionController::Base
     # or turn layout off for every devise controller:
     !devise_controller? && "application"
   end
+  
+  
   
 end

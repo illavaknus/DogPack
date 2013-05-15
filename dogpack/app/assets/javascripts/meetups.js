@@ -2,14 +2,14 @@ var places = [];
     
 var othersEvents = {
     events: gon.recipient_meetups,
-    color: 'red',
+    color: 'grey',
     textColor: 'white'
     
 };
 
 var yourEvents =  {
     events: gon.my_meetups,
-    color: 'red',
+    color: 'grey',
     textColor: 'white'
 };
 

@@ -4,7 +4,7 @@
 	<div class ="row-fluid" id="alertDiv">
 	<% flash.each do |name, msg| %>
 	  <% if msg.is_a?(String) %>
-		    <div class="alert <%= name == :notice ? "success" : "error" %>">
+		    <div class="alert alert-<%= name == :notice ? "info" : "error" %>">
 		      <a class="close" data-dismiss="alert">&#215;</a>
 		      <%= content_tag :div, msg, :id => "flash_#{name}" %>
 		    </div>
@@ -58,10 +58,10 @@
           	<% @user.upcoming_meetups.each do |m| %>
 	        		<div class="fluid-row list-item img-polaroid">
           			<div class="span4">
-          			<%= image_tag m.sender.image_url%>
+          			<%= image_tag m.other(current_user).image_url%>
           			</div>
 						    <div class="span6 lead">
-										<span class="span8">With <span class="username"><%= m.sender.name %></span> on <%= m.date.strftime '%b %e, %l:%M %p' %> at <%= m.venue %></span>
+										<span class="span8">With <span class="username"><%= m.other(current_user).name %></span> on <%= m.date.strftime '%b %e, %l:%M %p' %> at <%= m.venue %></span>
 								</div>
 								<div class="span2 btn-div">
             				<a href="/meetups/<%= m.id %>/edit" class="btn btn-info pull-right">View</a>
@@ -73,10 +73,10 @@
           	<% @user.previous_meetups.each do |m| %>
 	        		<div class="fluid-row list-item img-polaroid">
           			<div class="span4">
-          			<%= image_tag m.sender.image_url%>
+          			<%= image_tag m.other(current_user).image_url%>
           			</div>
 						    <div class="span6 lead">
-										<span class="span8">With <span class="username"><%= m.sender.name %></span> on <%= m.date.strftime '%b %e, %l:%M %p' %> at <%= m.venue %></span>
+										<span class="span8">With <span class="username"><%= m.other(current_user).name %></span> on <%= m.date.strftime '%b %e, %l:%M %p' %> at <%= m.venue %></span>
 								</div>
 								<div class="span2 btn-group-div">
 									<% if m.has_reviewed(@user) %>

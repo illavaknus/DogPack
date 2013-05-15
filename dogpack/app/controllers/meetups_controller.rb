@@ -59,17 +59,17 @@ class MeetupsController < ApplicationController
   # POST /meetups
   def create
     @meetup = Meetup.new(params[:meetup])
-    @meetup.date = Time.at(params[:meetup][:date].getlocal)
+    @meetup.date = Time.at(params[:meetup][:date].to_i)
     
     respond_to do |format|
       if @meetup.save
        if(@meetup.prev_meetup_id.nil? )
-          response = "Meetup invitation was sent"
+          response = "An invitation to meetup with #{@meetup.recipient.name} was sent"
         else
           prev = Meetup.find(@meetup.prev_meetup_id)
           prev.accept_status = -1
           prev.save
-          response = "Rescheduling request was sent"
+          response = "A request to reschedule your meetup with #{@meetup.other(current_user).name} was sent"
         end
         format.html { redirect_to "/", notice: response }
       else
@@ -86,13 +86,13 @@ class MeetupsController < ApplicationController
     if action == "Reject" || action == "Cancel" 
       @meetup.accept_status = -1;
       if action == "Reject"
-        response = "Invitation was rejected"
+        response = "The invitation from #{@meetup.sender.name} was rejected"
       else
-        response = "Meetup was cancelled"
+        response = "Your meetup with #{@meetup.other(current_user).name} was cancelled"
       end
     else
       @meetup.accept_status = 1;
-      response = "Invitation was accepted"
+      response = "The invitation from #{@meetup.sender.name} was accepted"
     end
 
     respond_to do |format|

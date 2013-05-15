@@ -6,7 +6,7 @@ Dogpack::Application.routes.draw do
     
   match '/search' => "search#search",         :as => :search
      
-  resources :users, :meetups
+  resources :users, :meetups, :friendships
   
   resources :meetups do
     resources :reviews
